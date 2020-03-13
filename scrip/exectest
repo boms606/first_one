@@ -1,0 +1,10 @@
+#!/bin/bash
+
+exec &> >(tee -a log)
+
+echo "first bad" #| tee -a log
+ls -zz #2> >(tee -a log)
+echo "then good" #| tee -a log
+ls -lh #| tee -a log
+
+#exit 0

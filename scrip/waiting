@@ -1,0 +1,51 @@
+#!/bin/bash
+
+
+loopi=( '-' '\' '|' '/' )
+loopit=( Ooooo oOooo ooOoo oooOo ooooO )
+
+if [ -n "$1" ] && (( "$1" == "l"  ||  "$1" == "o" ))
+then
+    echo "type of sequense is set to $1"
+    if [ "$1" == "l" ]
+    then
+        typeo=${loopi[@]}
+        slt=.25
+    else
+        typeo=${loopit[@]}
+        slt=.2
+    fi
+else
+    echo "type argument is not given, default is set to 'o'"
+    typeo=${loopit[@]}
+    slt=.2
+fi
+
+if [ -n "$2" ]
+then
+    echo "$2 as timespan provided"
+    till=$2
+else
+    echo "No timespan provided. Default is '10'"
+    till=10
+fi
+
+
+waitseq() {
+    for i in ${typeo[@]} #${loopit[@]}
+        do
+            echo -en "$i \r"
+            sleep $slt
+        done
+}
+
+forhowl() {
+    for j in `seq 1 $till`
+        do
+            waitseq
+        done
+    echo Done!
+}
+
+forhowl
+

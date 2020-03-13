@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "huhu"
+
+while [ 1 ] 
+do
+echo -ne "$(date)\r" 
+sleep 1
+done

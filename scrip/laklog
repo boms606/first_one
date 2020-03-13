@@ -1,0 +1,42 @@
+#! /bin/sh
+
+# --insecure same as --no-check-certificate in wget
+# -s silent, no progress bar when piping the output in grep
+
+# format of the downloaded page is usually ..<bla><bla>text i want to output<bla>..
+# "grep" just puts out the line on the downloaded page with the specified string
+# "cut" finds the text to output in the line found by "grep"
+
+# wget possible too: 
+# wget -q --no-check-certificate https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --post-data="loginid=sariamj1&password=milligurur&action=Login" --delete-after
+
+case "$1" in
+    connect)
+        echo "Verbindung zum Internet wird hergestellt.."
+        curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "loginid=sariamj1&password=milligurur&action=Login" | grep "<small><small>" | cut -f3 -d"<" | cut -f2 -d">"
+        ;;
+    disconnect)
+        echo "Verbindung zum Internet wird getrennt.."
+        curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "action=Logout" | grep "<big><big>" | cut -f4 -d"<" | cut -f2 -d">"
+        ;;
+    --info)
+        echo "Script to connect to the network of Ruhr-Universitaet-Bochum"
+        echo " "
+        echo "Works by sending a post request to:"
+        echo "    https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin"
+        echo "with the following data:"
+        echo "    loginid: ***"
+        echo "    password: ***"
+        echo "    action: { Login | Logout }"
+        echo "The format for the data is expected as a string with \"&\" as delimeter-symbol"
+        echo " "
+        echo "In this case \"curl\" is used"
+        ;;
+    *)
+        echo "Usage: laklog {connect|disconnect}"
+        echo "Or try 'laklog --info' for more information"
+        exit 1
+        ;;
+esac
+
+exit 0

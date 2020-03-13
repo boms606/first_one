@@ -1,0 +1,4 @@
+#!/bin/bash
+
+curl -s http://checkip.dyndns.org/ | sed 's/[a-zA-Z<>/ :]//g' | mail -s "test-ip" sarialm@hotmail.com
+echo "wansend done.."

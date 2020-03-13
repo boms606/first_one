@@ -1,0 +1,50 @@
+#! /bin/bash
+
+#darker colors
+dblck="\033[30m"
+drd="\033[31m"
+dgrn="\033[32m"
+dyllw="\033[33m"
+dbl="\033[34m"
+dprpl="\033[35m"
+dcyn="\033[36m"
+
+#lighter colors
+lblck="\033[90m"
+lrd="\033[91m"
+lgrn="\033[92m"
+lyllw="\033[93m"
+lbl="\033[94m"
+lprpl="\033[95m"
+lcyn="\033[96m"
+
+#normal
+nrm="\033[0m"
+case "$2" in
+	black)
+		color=$dblck
+		;;
+	red)
+		color=$drd
+		;;
+	green)
+		color=$dgrn
+		;;
+	yellow)
+		color=$dyllw
+		;;
+	blue)
+		color=$dbl
+		;;
+	purple)
+		color=$dprpl
+		;;
+	cyan)
+		color=$dcyn
+		;;
+	*)
+		color=$nrm
+		;;
+esac
+
+printf "${color}$1${nrm}\n"

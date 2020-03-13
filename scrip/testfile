@@ -1,0 +1,23 @@
+#!/bin/bash
+
+file=$@
+
+echo "the file is '$@'"
+
+#com() {
+#	$@ 2>> log
+
+
+#com
+
+#errlev=${PIPESTATUS[0]}
+
+#if [ $errlev -eq 0 ]
+#if [ ! -w /mnt/sdbdata/pagefile.sys ]
+if [ -w "$file" ]
+then
+	echo "and its writeable"
+else
+	echo "and its not writeable"
+fi
+

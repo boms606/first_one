@@ -22,3 +22,5 @@ sudo apt update
 
 #set personalisation variables
 sudo echo "set -g default-terminal \"screen-256color\"" > /etc/tmux.conf
+
+to be continued later

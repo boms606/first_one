@@ -8,12 +8,12 @@
 # "cut" finds the text to output in the line found by "grep"
 
 # wget possible too: 
-# wget -q --no-check-certificate https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --post-data="loginid=sariamj1&password=milligurur&action=Login" --delete-after
+# wget -q --no-check-certificate https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --post-data="loginid=nonono&password=nonono&action=Login" --delete-after
 
 case "$1" in
     connect)
         echo "Verbindung zum Internet wird hergestellt.."
-        curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "loginid=sariamj1&password=milligurur&action=Login" | grep "<small><small>" | cut -f3 -d"<" | cut -f2 -d">"
+        curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "loginid=nonono&password=nonono&action=Login" | grep "<small><small>" | cut -f3 -d"<" | cut -f2 -d">"
         ;;
     disconnect)
         echo "Verbindung zum Internet wird getrennt.."

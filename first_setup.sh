@@ -1,7 +1,7 @@
 #!/bin/bash
 
-usernam=$(whoami)
-
+#usernam=$(whoami)
+usernam=$1
 
 #create directories and set path to accept own scripts globally
 mkdir /home/$usernam/scripts

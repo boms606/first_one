@@ -3,9 +3,11 @@
 #usernam=$(whoami)
 usernam=$1
 
-#create directories and set path to accept own scripts globally
+#create directories 
 mkdir /home/$usernam/scripts
 mkdir /home/$usernam/scripts/bash
+
+#set path to accept own scripts globally
 echo "" >> /etc/profile
 echo "export PATH=$PATH:/home/$usernam/scripts/bash/" >> /etc/profile
 export PATH=$PATH:/home/$usernam/scripts/bash/

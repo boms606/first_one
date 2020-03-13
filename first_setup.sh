@@ -4,14 +4,14 @@ usernam=$(whoami)
 
 
 #create directories and set path to accept own scripts globally
-mkdir ~/scripts
-mkdir ~/scripts/bash
+mkdir /home/$usernam/scripts
+mkdir /home/$usernam/scripts/bash
 export PATH=$PATH:/home/$usernam/scripts/bash/ 
 echo "" >> /etc/profile
 echo "export PATH=$PATH:/home/$usernam/scripts/bash/" >> /etc/profile
 
 #copy scripts
-cp scrip/* ~/scripts/bash/
+cp scrip/* /home/$usernam/scripts/bash/
 
 #install some stuff
 apt update

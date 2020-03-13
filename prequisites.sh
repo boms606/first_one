@@ -10,3 +10,5 @@ cd first_one
 sudo chmod +x first_setup.sh
 ./first_setup.sh
 
+#tmux new-session -d -s "a" sudo ./first_setup.sh
+

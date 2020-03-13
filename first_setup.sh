@@ -6,9 +6,9 @@ usernam=$1
 #create directories and set path to accept own scripts globally
 mkdir /home/$usernam/scripts
 mkdir /home/$usernam/scripts/bash
-export PATH=$PATH:/home/$usernam/scripts/bash/ 
 echo "" >> /etc/profile
 echo "export PATH=$PATH:/home/$usernam/scripts/bash/" >> /etc/profile
+export PATH=$PATH:/home/$usernam/scripts/bash/
 
 #copy scripts
 cp scrip/* /home/$usernam/scripts/bash/

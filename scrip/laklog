@@ -13,7 +13,7 @@
 case "$1" in
     connect)
         echo "Verbindung zum Internet wird hergestellt.."
-        curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "loginid=nonono&password=nonono&action=Login" | grep "<small><small>" | cut -f3 -d"<" | cut -f2 -d">"
+        curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "loginid=$2&password=$3&action=Login" | grep "<small><small>" | cut -f3 -d"<" | cut -f2 -d">"
         ;;
     disconnect)
         echo "Verbindung zum Internet wird getrennt.."

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+exec 2> errors
+
 #usernam=$(whoami)
 usernam=$1
 

@@ -15,9 +15,9 @@ cp scrip/* /home/$usernam/scripts/bash/
 
 #install some stuff
 apt update
-apt upgrade
+apt upgrade -y
 apt update
-apt install tmux htop snapd screenfetch
+apt install tmux htop snapd screenfetch -y
 apt update
 
 #set path to accept own scripts globally

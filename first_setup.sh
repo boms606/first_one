@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#redirect errors to logfile named "errors"
 exec 2> errors
 
 #usernam=$(whoami)

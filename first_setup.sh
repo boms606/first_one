@@ -7,11 +7,6 @@ usernam=$1
 mkdir /home/$usernam/scripts
 mkdir /home/$usernam/scripts/bash
 
-#set path to accept own scripts globally
-echo "" >> /etc/profile
-echo "export PATH=$PATH:/home/$usernam/scripts/bash/" >> /etc/profile
-export PATH=$PATH:/home/$usernam/scripts/bash/
-
 #copy scripts
 cp scrip/* /home/$usernam/scripts/bash/
 
@@ -21,6 +16,11 @@ apt upgrade
 apt update
 apt install tmux htop snapd
 apt update
+
+#set path to accept own scripts globally
+echo "" >> /etc/profile
+echo "export PATH=$PATH:/home/$usernam/scripts/bash/" >> /etc/profile
+export PATH=$PATH:/home/$usernam/scripts/bash/
 
 #set personalisation variables
 echo "set -g default-terminal \"screen-256color\"" > /etc/tmux.conf

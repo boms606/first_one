@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # todo: - find a way to check whether working directory is first_one/
-#       - add timestamps to error.log logs
+#       - add timestamps to errors.log logs
 #       - delete errors.log when no error or prevent it from being created
 
 #redirect errors to logfile named "errors"

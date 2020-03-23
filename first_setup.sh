@@ -2,7 +2,6 @@
 
 # todo: - find a way to check whether working directory is first_one/
 #       - add timestamps to errors.log logs
-#       - delete errors.log when no error or prevent it from being created
 
 #redirect errors to logfile named "errors"
 exec 2> errors.log
@@ -49,6 +48,9 @@ echo -e "a 00006f\ng logo 6f0000\ng multimedia 006f00\ng indicators 006f00\nc" >
 [[ -n $(uname -a | grep -i 'budgie') ]] && dconf load / < bckpfiles/budgie-backup && echo "budgie-backup loaded" || echo "no budgie backup" 
     # "-n" means "if not empty string", "&&" means "on success"
     # "-z" means "if empty string",     "||" means "on fail"
+
+#remove errors.log when file is empty
+[ -z $(cat errors.log) ] && rm errors.log && echo "script finished without errors"
 
 #handover to new user
 chown -R $usernam:$usernam ../first_one/

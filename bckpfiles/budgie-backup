@@ -1,0 +1,370 @@
+[apps/update-manager]
+launch-count=1
+launch-time=int64 1584535403
+
+[com/gexperts/Tilix]
+prompt-on-close-process=false
+
+[com/solus-project/budgie-panel]
+dark-theme=true
+migration-level=1
+panels=['35f90026-6914-11ea-8862-af1cc27146a9']
+
+[com/solus-project/budgie-panel/applets/{35f90027-6914-11ea-8862-af1cc27146a9}]
+alignment='start'
+name='Budgie Menu'
+position=0
+
+[com/solus-project/budgie-panel/applets/{35f90028-6914-11ea-8862-af1cc27146a9}]
+alignment='start'
+name='Spacer'
+position=1
+
+[com/solus-project/budgie-panel/applets/{35f90029-6914-11ea-8862-af1cc27146a9}]
+alignment='start'
+name='ShowTime'
+position=3
+
+[com/solus-project/budgie-panel/applets/{35f9002a-6914-11ea-8862-af1cc27146a9}]
+alignment='center'
+name='Clock'
+position=0
+
+[com/solus-project/budgie-panel/applets/{35f9002b-6914-11ea-8862-af1cc27146a9}]
+alignment='end'
+name='AppIndicator Applet'
+position=0
+
+[com/solus-project/budgie-panel/applets/{35f9002c-6914-11ea-8862-af1cc27146a9}]
+alignment='end'
+name='System Tray'
+position=1
+
+[com/solus-project/budgie-panel/applets/{35f9002d-6914-11ea-8862-af1cc27146a9}]
+alignment='end'
+name='Caffeine'
+position=2
+
+[com/solus-project/budgie-panel/applets/{35f9002f-6914-11ea-8862-af1cc27146a9}]
+alignment='end'
+name='Spacer'
+position=4
+
+[com/solus-project/budgie-panel/applets/{35f90031-6914-11ea-8862-af1cc27146a9}]
+alignment='end'
+name='Places'
+position=5
+
+[com/solus-project/budgie-panel/applets/{382ba830-6914-11ea-8862-af1cc27146a9}]
+alignment='end'
+name='Notifications'
+position=6
+
+[com/solus-project/budgie-panel/applets/{382ba831-6914-11ea-8862-af1cc27146a9}]
+alignment='end'
+name='Status Indicator'
+position=7
+
+[com/solus-project/budgie-panel/applets/{382ba832-6914-11ea-8862-af1cc27146a9}]
+alignment='end'
+name='Separator'
+position=8
+
+[com/solus-project/budgie-panel/applets/{382ba833-6914-11ea-8862-af1cc27146a9}]
+alignment='end'
+name='Spacer'
+position=9
+
+[com/solus-project/budgie-panel/applets/{382ba834-6914-11ea-8862-af1cc27146a9}]
+alignment='end'
+name='User Indicator'
+position=10
+
+[com/solus-project/budgie-panel/applets/{382ba835-6914-11ea-8862-af1cc27146a9}]
+alignment='end'
+name='Raven Trigger'
+position=11
+
+[com/solus-project/budgie-panel/applets/{be5105ee-6915-11ea-8535-cfadb29fed08}]
+alignment='end'
+name='QuickNote'
+position=3
+
+[com/solus-project/budgie-panel/applets/{cfb36e2c-6914-11ea-8862-af1cc27146a9}]
+alignment='start'
+name='Workspace Switcher'
+position=2
+
+[com/solus-project/budgie-panel/panels/{35f90026-6914-11ea-8862-af1cc27146a9}]
+applets=['cfb36e2c-6914-11ea-8862-af1cc27146a9', '382ba831-6914-11ea-8862-af1cc27146a9', '382ba830-6914-11ea-8862-af1cc27146a9', '382ba835-6914-11ea-8862-af1cc27146a9', '35f90029-6914-11ea-8862-af1cc27146a9', '35f9002d-6914-11ea-8862-af1cc27146a9', '382ba834-6914-11ea-8862-af1cc27146a9', '35f9002c-6914-11ea-8862-af1cc27146a9', 'be5105ee-6915-11ea-8535-cfadb29fed08', '35f90028-6914-11ea-8862-af1cc27146a9', '35f90031-6914-11ea-8862-af1cc27146a9', '35f9002b-6914-11ea-8862-af1cc27146a9', '382ba833-6914-11ea-8862-af1cc27146a9', '35f90027-6914-11ea-8862-af1cc27146a9', '35f9002a-6914-11ea-8862-af1cc27146a9', '35f9002f-6914-11ea-8862-af1cc27146a9', '382ba832-6914-11ea-8862-af1cc27146a9']
+location='top'
+size=35
+transparency='dynamic'
+
+[com/solus-project/budgie-wm]
+caffeine-mode=true
+center-windows=false
+
+[com/ubuntu/update-notifier]
+release-check-time=uint32 1584534677
+
+[desktop/ibus/general]
+preload-engines=['xkb:de::ger']
+version='1.5.21'
+
+[net/launchpad/plank/docks/dock1]
+alignment='center'
+auto-pinning=true
+current-workspace-only=false
+dock-items=['com.gexperts.Tilix.dockitem', 'nemo.dockitem', 'firefox.dockitem', 'code_code.dockitem', 'skypeforlinux.dockitem', 'teams-for-linux_teams-for-linux.dockitem', 'obs-studio_obs-studio.dockitem', 'org.gnome.Software.dockitem']
+hide-delay=500
+hide-mode='window-dodge'
+icon-size=32
+items-alignment='center'
+lock-items=false
+monitor=''
+offset=0
+pinned-only=false
+position='bottom'
+pressure-reveal=false
+show-dock-item=false
+theme='Transparent'
+tooltips-enabled=true
+unhide-delay=0
+zoom-enabled=true
+zoom-percent=150
+
+[org/gnome/control-center]
+last-panel='background'
+
+[org/gnome/desktop/app-folders]
+folder-children=['Utilities', 'Sundry', 'YaST']
+
+[org/gnome/desktop/app-folders/folders/Sundry]
+apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop', 'fedora-release-notes.desktop', 'firewall-config.desktop', 'flash-player-properties.desktop', 'gconf-editor.desktop', 'gnome-abrt.desktop', 'gnome-power-statistics.desktop', 'ibus-setup-anthy.desktop', 'ibus-setup.desktop', 'ibus-setup-hangul.desktop', 'ibus-setup-libbopomofo.desktop', 'ibus-setup-libpinyin.desktop', 'ibus-setup-m17n.desktop', 'ibus-setup-typing-booster.desktop', 'im-chooser.desktop', 'itweb-settings.desktop', 'jhbuild.desktop', 'javaws.desktop', 'java-1.7.0-openjdk-jconsole.desktop', 'java-1.7.0-openjdk-policytool.desktop', 'log4j-chainsaw.desktop', 'log4j-logfactor5.desktop', 'nm-connection-editor.desktop', 'orca.desktop', 'setroubleshoot.desktop', 'system-config-date.desktop', 'system-config-firewall.desktop', 'system-config-keyboard.desktop', 'system-config-language.desktop', 'system-config-printer.desktop', 'system-config-users.desktop', 'vino-preferences.desktop']
+categories=['X-GNOME-Sundry']
+name='X-GNOME-Sundry.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+apps=['org.gnome.baobab.desktop', 'deja-dup-preferences.desktop', 'eog.desktop', 'evince.desktop', 'org.gnome.FileRoller.desktop', 'gnome-calculator.desktop', 'gnome-dictionary.desktop', 'org.gnome.Characters.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Screenshot.desktop', 'gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'gnome-tweak-tool.desktop', 'gucharmap.desktop', 'seahorse.desktop', 'vinagre.desktop', 'yelp.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[org/gnome/desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/budgie/espresso_in_small_cup_by_brodie_vissers.jpg'
+primary-color='#000000'
+secondary-color='#000000'
+
+[org/gnome/desktop/input-sources]
+current=uint32 0
+sources=[('xkb', 'de')]
+
+[org/gnome/desktop/interface]
+cursor-theme='DMZ-White'
+gtk-im-module='gtk-im-context-simple'
+gtk-theme='Pocillo'
+icon-theme='Pocillo'
+
+[org/gnome/desktop/peripherals/keyboard]
+numlock-state=true
+
+[org/gnome/desktop/screensaver]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/budgie/manuscript_by_phan_minh_cuong.jpg'
+primary-color='#000000'
+secondary-color='#000000'
+
+[org/gnome/desktop/session]
+idle-delay=uint32 0
+
+[org/gnome/desktop/wm/keybindings]
+show-desktop=['']
+switch-to-workspace-left=['']
+switch-to-workspace-right=['']
+
+[org/gnome/desktop/wm/preferences]
+button-layout='appmenu:minimize,maximize,close'
+num-workspaces=4
+workspace-names=['</>', '-,-', '(o,o)', ';-P']
+
+[org/gnome/evolution-data-server]
+migrated=true
+network-monitor-gio-name=''
+
+[org/gnome/gedit/plugins]
+active-plugins=['docinfo', 'snippets', 'filebrowser', 'time', 'quickhighlight', 'modelines']
+
+[org/gnome/gedit/plugins/filebrowser]
+root='file:///'
+tree-view=true
+virtual-root='file:///media/louis/Data%20Drive/LinuxStuff/towerBackup/Documents/logitech-g810'
+
+[org/gnome/gedit/preferences/editor]
+auto-indent=true
+bracket-matching=true
+display-line-numbers=true
+display-overview-map=true
+highlight-current-line=true
+insert-spaces=true
+scheme='solarized-dark'
+tabs-size=uint32 4
+wrap-last-split-mode='word'
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(960, 1002)
+state=87168
+
+[org/gnome/gnome-screenshot]
+border-effect='none'
+include-border=true
+include-pointer=false
+
+[org/gnome/maps]
+last-viewed-location=[3.6888551431470469, 10.37109375]
+map-type='MapsStreetSource'
+transportation-type='pedestrian'
+window-maximized=true
+zoom-level=2
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_tophalf/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/budgie-show-desktop/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_bottomleft/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_bottomhalf/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/windowshuffler/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_bottomright_noKP/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_righthalf/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_bottomright/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_topleft/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_topright_noKP/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/budgie-show-files-test/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_topright/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_bottomleft_noKP/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_topleft_noKP/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_lefthalf/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_max/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/budgie-show-desktop]
+binding='<Super>d'
+command='/usr/share/budgie-desktop/showdesktop/showdesktop'
+name='Hide/Show desktop'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/budgie-show-files-test]
+binding='<Super>e'
+command='nemo'
+name='Show File Browser'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_bottomhalf]
+binding='<Primary><Alt>KP_2'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 1 2 0 1'
+name='Shuffler-tiling bottomhalf'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_bottomleft]
+binding='<Primary><Alt>KP_1'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 2 2 0 1'
+name='Shuffler-tiling bottomleft'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_bottomleft_noKP]
+binding='<Super>3'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 2 2 0 1'
+name='Shuffler-tiling bottomleft mainkeyboard'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_bottomright]
+binding='<Primary><Alt>KP_3'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 2 2 1 1'
+name='Shuffler-tiling bottomright'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_bottomright_noKP]
+binding='<Super>4'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 2 2 1 1'
+name='Shuffler-tiling bottomright mainkeyboard'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_lefthalf]
+binding='<Primary><Alt>KP_4'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 2 1 0 0'
+name='Shuffler-tiling lefthalf'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_max]
+binding='<Primary><Alt>KP_5'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 1 1 0 0'
+name='Shuffler-tiling maximized'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_righthalf]
+binding='<Primary><Alt>KP_6'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 2 1 1 0'
+name='Shuffler-tiling righthalf'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_tophalf]
+binding='<Primary><Alt>KP_8'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 1 2 0 0'
+name='Shuffler-tiling tophalf'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_topleft]
+binding='<Primary><Alt>KP_7'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 2 2 0 0'
+name='Shuffler-tiling topleft'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_topleft_noKP]
+binding='<Super>1'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 2 2 0 0'
+name='Shuffler-tiling topleft mainkeyboard'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_topright]
+binding='<Primary><Alt>KP_9'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 2 2 1 0'
+name='Shuffler-tiling topright'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/shuffler_topright_noKP]
+binding='<Super>2'
+command='/usr/share/budgie-desktop/windowshuffler/shuffler_nogui 2 2 1 0'
+name='Shuffler-tiling topright mainkeyboard'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/windowshuffler]
+binding='<Super>s'
+command='/usr/share/budgie-desktop/windowshuffler/matrix_wrapper'
+name='Toggle Window Shuffler'
+
+[org/gnome/settings-daemon/plugins/power]
+idle-dim=false
+sleep-inactive-ac-timeout=0
+sleep-inactive-battery-timeout=0
+
+[org/gnome/settings-daemon/plugins/xsettings]
+overrides={'Gtk/ShellShowsAppMenu': <0>, 'Gtk/DecorationLayout': <'menu:minimize,maximize,close'>}
+
+[org/gnome/software]
+check-timestamp=int64 1584708328
+first-run=false
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=171
+sort-column='name'
+sort-directories-first=true
+sort-order='ascending'
+type-format='category'
+window-position=(45, 189)
+window-size=(1231, 687)
+
+[org/nemo/desktop]
+desktop-layout='true::false'
+volumes-visible=true
+
+[org/nemo/preferences]
+default-folder-viewer='list-view'
+
+[org/nemo/window-state]
+geometry='800x550+159+184'
+maximized=false
+sidebar-bookmark-breakpoint=5
+start-with-sidebar=true
+
+[org/onboard]
+schema-version='2.3'
+system-theme-associations={'HighContrast': 'HighContrast', 'HighContrastInverse': 'HighContrastInverse', 'LowContrast': 'LowContrast', 'ContrastHighInverse': 'HighContrastInverse', 'Default': ''}
+use-system-defaults=false

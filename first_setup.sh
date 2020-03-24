@@ -36,4 +36,4 @@ echo "set -g default-terminal \"screen-256color\"" > /etc/tmux.conf
 chown -R $usernam:$usernam ../first_one/
 chown -R $usernam:$usernam /home/$usernam/scripts/
 
-#to be continued later
+#to be continued later 

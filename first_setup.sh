@@ -19,8 +19,9 @@ cp scrip/* /home/$usernam/scripts/bash/
 #install some stuff
 apt update
 apt upgrade -y && apt update
-apt install tmux htop screenfetch -y
+apt install tmux htop screenfetch g++ make-y
 apt install g810-led -y
+# https://github.com/MatMoul/g810-led/blob/master/INSTALL.md
 apt install skypeforlinux -y && apt update
 
 systemdizda() {

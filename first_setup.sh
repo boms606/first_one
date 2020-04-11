@@ -2,6 +2,7 @@
 
 # todo: - find a way to check whether working directory is first_one/
 #       - add timestamps to errors.log logs
+#       - troubleshooting for apt install g810 for older debian versions (install via git)
 
 #redirect errors to logfile named "errors"
 exec 2> errors.log

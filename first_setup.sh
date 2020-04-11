@@ -9,6 +9,8 @@ exec 2> errors.log
 
 systemdizda() {
     apt install snapd -y && apt update
+    # bug on debian not adding snap to $PATH
+    [[ -z $(echo $PATH | grep "/snap/bin") ]] && export PATH=$PATH:/snap/bin && pathtobeadded+=":/snap/bin"
     snap install code --classic
     snap install teams-for-linux
     snap install vlc
@@ -46,9 +48,7 @@ pidof systemd && systemdizda || echo "No systemd active, thus snapd not necessar
 
 
 #set path to accept own scripts globally
-echo "" >> /etc/profile
-echo "export PATH=$PATH:/home/$usernam/scripts/bash/" >> /etc/profile
-export PATH=$PATH:/home/$usernam/scripts/bash/
+export PATH=$PATH:/home/$usernam/scripts/bash && pathtobeadded+=:/home/$usernam/scripts/bash
 
 #set personalisation variables
 echo "set -g default-terminal \"screen-256color\"" > /etc/tmux.conf
@@ -62,6 +62,9 @@ echo -e "a 00006f\ng logo 6f0000\ng multimedia 006f00\ng indicators 006f00\nc" >
 #handover to new user
 chown -R $usernam:$usernam ../first_one/
 chown -R $usernam:$usernam /home/$usernam/scripts/
+
+echo "" >> /etc/profile
+echo "export PATH=$PATH$pathtobeadded" >> /etc/profile
 
 #remove errors.log when file is empty
 cleanafterwards

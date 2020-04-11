@@ -10,12 +10,13 @@ exec 2> errors.log
 systemdizda() {
     apt install snapd -y && apt update
     # bug on debian not adding snap to $PATH
-    [[ -z $(echo $PATH | grep "/snap/bin") ]] && export PATH=$PATH:/snap/bin && pathtobeadded+=":/snap/bin"
+    [[ -z $(echo $PATH | grep -q "/snap/bin") ]] && export PATH=$PATH:/snap/bin && pathtobeadded+=":/snap/bin"
     snap install code --classic
     snap install teams-for-linux
-    snap install vlc
+    [[ -z $(dpkg -l | grep -qi vlc) ]] snap install vlc
     snap install spotify
     snap install obs-studio
+    [[ -z $(dpkg -l | grep -qi skype) ]] && snap install skype --classic
 }
 
 cleanafterwards() {
@@ -41,6 +42,7 @@ apt install tmux htop screenfetch g++ make -y
 apt install g810-led -y # || git install ..
 # https://github.com/MatMoul/g810-led/blob/master/INSTALL.md
 apt install skypeforlinux -y
+apt install vlc -y
 apt update
 
 # check whether systemd is present
@@ -55,7 +57,7 @@ echo "set -g default-terminal \"screen-256color\"" > /etc/tmux.conf
 echo -e "a 00006f\ng logo 6f0000\ng multimedia 006f00\ng indicators 006f00\nc" > /etc/g810-led/profile
 
 #load settings from backup if necessary
-[[ -n $(screenfetch | grep -i 'budgie') ]] && dconf load / < bckpfiles/budgie-backup && echo "budgie-backup loaded" || echo "no budgie backup" 
+[[ -n $(screenfetch | grep -qi 'budgie') ]] && dconf load / < bckpfiles/budgie-backup && echo "budgie-backup loaded" || echo "no budgie backup" 
     # "-n" means "if not empty string", "&&" means "on success"
     # "-z" means "if empty string",     "||" means "on fail"
 

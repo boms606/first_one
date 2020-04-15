@@ -4,7 +4,7 @@
 #       - add timestamps to errors.log logs
 #       - troubleshooting for apt install g810 for older debian versions (install via git)
 
-# redirect errors to logfile named "errors"
+# redirect errors to logfile named "errors.log"
 exec 2> errors.log
 
 systemdizda() {
@@ -15,7 +15,7 @@ systemdizda() {
     snap install teams-for-linux
     [[ -z $(dpkg -l | grep -qi vlc) ]] && snap install vlc
     snap install spotify
-    snap install obs-studio
+    [[ -z $(dpkg -l | grep -qi obs-studio) ]] && snap install obs-studio
     [[ -z $(dpkg -l | grep -qi skype) ]] && snap install skype --classic
 }
 
@@ -45,6 +45,7 @@ apt install g810-led -y # || git install ..
 # https://github.com/MatMoul/g810-led/blob/master/INSTALL.md
 apt install skypeforlinux -y
 apt install vlc -y
+apt install obs-studio -y
 apt update
 
 # check whether systemd is present

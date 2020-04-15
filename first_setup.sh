@@ -10,13 +10,13 @@ exec 2> errors.log
 systemdizda() {
     apt install snapd -y && apt update
     # bug on debian not adding snap to $PATH
-    [[ -z $(echo $PATH | grep -q "/snap/bin") ]] && export PATH=$PATH:/snap/bin && pathtobeadded+=":/snap/bin"
+    [[ -z $(echo $PATH | grep "/snap/bin") ]] && export PATH=$PATH:/snap/bin #&& pathtobeadded+=":/snap/bin"
     snap install code --classic
     snap install teams-for-linux
-    [[ -z $(dpkg -l | grep -qi vlc) ]] && snap install vlc
+    [[ -z $(dpkg -l | grep -i vlc) ]] && snap install vlc
     snap install spotify
-    [[ -z $(dpkg -l | grep -qi obs-studio) ]] && snap install obs-studio
-    [[ -z $(dpkg -l | grep -qi skype) ]] && snap install skype --classic
+    [[ -z $(dpkg -l | grep -i obs-studio) ]] && snap install obs-studio
+    [[ -z $(dpkg -l | grep -i skype) ]] && snap install skype --classic
 }
 
 cleanafterwards() {
@@ -53,14 +53,14 @@ pidof systemd && systemdizda || echo "No systemd active, thus snapd not necessar
 
 
 # set path to accept own scripts globally
-export PATH=$PATH:/home/$usernam/scripts/bash && pathtobeadded+=:/home/$usernam/scripts/bash
+export PATH=$PATH:/home/$usernam/scripts/bash && #pathtobeadded+=:/home/$usernam/scripts/bash
 
 # set personalisation variables
 echo "set -g default-terminal \"screen-256color\"" > /etc/tmux.conf
 echo -e "a 00006f\ng logo 6f0000\ng multimedia 006f00\ng indicators 006f00\nc" > /etc/g810-led/profile
 
 # load settings from backup if necessary
-[[ -n $(screenfetch | grep -qi 'budgie') ]] && dconf load / < bckpfiles/budgie-backup && echo "budgie-backup loaded" || echo "no budgie backup" 
+[[ -n $(screenfetch | grep -i 'budgie') ]] && dconf load / < bckpfiles/budgie-backup && echo "budgie-backup loaded" || echo "no budgie backup" 
     # "-n" means "if not empty string", "&&" means "on success"
     # "-z" means "if empty string",     "||" means "on fail"
 
@@ -70,7 +70,8 @@ chown -R $usernam:$usernam /home/$usernam/scripts/
 
 # make changes to path permanent
 echo "" >> /etc/profile
-echo "export PATH=$PATH$pathtobeadded" >> /etc/profile
+#echo "export PATH=$PATH$pathtobeadded" >> /etc/profile
+echo "export PATH=$PATH" >> /etc/profile
 
 cleanafterwards
 

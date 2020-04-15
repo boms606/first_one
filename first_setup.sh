@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # todo: - find a way to check whether working directory is first_one/
 #       - add timestamps to errors.log logs
@@ -13,7 +13,7 @@ systemdizda() {
     [[ -z $(echo $PATH | grep -q "/snap/bin") ]] && export PATH=$PATH:/snap/bin && pathtobeadded+=":/snap/bin"
     snap install code --classic
     snap install teams-for-linux
-    [[ -z $(dpkg -l | grep -qi vlc) ]] snap install vlc
+    [[ -z $(dpkg -l | grep -qi vlc) ]] && snap install vlc
     snap install spotify
     snap install obs-studio
     [[ -z $(dpkg -l | grep -qi skype) ]] && snap install skype --classic

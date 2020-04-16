@@ -5,6 +5,12 @@
 
 ffmpeg -i "$1" -c:v libx264 -crf 19 -strict experimental "$2"
 
+# -i    input file
+# -c:v  codec:video (c:a would be codec:audio)
+# crf   quality (sane levels between 18 and 23, default is 23, lower -> better)
+# -strict experimental because libx264 requires it
+# destination file format is specified by the extension of $2, not exclusively mp4
+
 #echo $PWD
 
 #echo "$1 - $2"

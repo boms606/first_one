@@ -64,6 +64,9 @@ echo -e "a 00006f\ng logo 6f0000\ng multimedia 006f00\ng indicators 006f00\nc" >
     # "-n" means "if not empty string", "&&" means "on success"
     # "-z" means "if empty string",     "||" means "on fail"
 
+#ubuntumate: dconf write /net/launchpad/plank/docks/dock1/show-dock-item false
+#            gsettings set org.gnome.desktop.session idle-delay 0
+
 # handover to new user
 chown -R $usernam:$usernam ../first_one/
 chown -R $usernam:$usernam /home/$usernam/scripts/

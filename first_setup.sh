@@ -1,11 +1,13 @@
 #! /bin/bash
 
-# todo: - find a way to check whether working directory is first_one/
-#       - add timestamps to errors.log logs
+# todo: - add timestamps to errors.log logs
 #       - troubleshooting for apt install g810 for older debian versions (install via git)
 
 # redirect errors to logfile named "errors.log"
 exec 2> errors.log
+
+# check whether working directory first_one/
+[[ -z $(ls | grep -i first_setup) ]] && echo "Please run the script from within the folder 'first_setup/'" && exit 1
 
 systemdizda() {
     apt install snapd -y && apt update
@@ -58,6 +60,12 @@ export PATH=$PATH:/home/$usernam/scripts/bash && #pathtobeadded+=:/home/$usernam
 # set personalisation variables
 echo "set -g default-terminal \"screen-256color\"" > /etc/tmux.conf
 echo -e "a 00006f\ng logo 6f0000\ng multimedia 006f00\ng indicators 006f00\nc" > /etc/g810-led/profile
+
+# get icons and themes
+for i in icons/*.tar.xz; do  sudo tar xvf $i -C /usr/share/icons/; done
+for i in themes/*.tar.xz; do  sudo tar xvf $i -C /usr/share/themes/; done
+for i in themes/*.tar.gz; do  sudo tar xvf $i -C /usr/share/themes/; done
+for i in themes/*.zip; do  sudo unzip $i -d /usr/share/themes/; done
 
 # load settings from backup if necessary
 [[ -n $(screenfetch | grep -i 'budgie') ]] && dconf load / < bckpfiles/budgie-backup && echo "budgie-backup loaded" || echo "no budgie backup" 

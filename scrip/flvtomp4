@@ -1,0 +1,17 @@
+#! /bin/bash
+
+[ -z "$2" ] && echo "operands missing" && exit 1
+
+
+ffmpeg -i "$1" -c:v libx264 -crf 19 -strict experimental "$2"
+
+#echo $PWD
+
+#echo "$1 - $2"
+#$1 - $2
+
+good=$?
+
+[ "0" == "$good" ] && echo "Done! Finished with exit code $good" || echo "error occured: Exit code $good"
+
+exit $good

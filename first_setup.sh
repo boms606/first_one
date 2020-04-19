@@ -69,7 +69,7 @@ for i in themes/*.zip; do  sudo unzip $i -d /usr/share/themes/; done
 
 # load settings from backup if necessary
 [[ -n $(screenfetch | grep -i 'budgie') ]] && sudo -u $usernam dconf load / < bckpfiles/budgie-backup && echo "budgie-backup loaded" || echo "no budgie backup" 
-[[ -n $(echo "$DESKTOP_SESSION" | grep -i "mate") ]] && sudo -u $usernam dconf load / < bckpfiles/mate-backup && 
+[[ -n $(echo $DESKTOP_SESSION | grep -i "mate") ]] && sudo -u $usernam dconf load / < bckpfiles/mate-backup && 
     echo "mate-backup loaded" && sudo -u $usernam dconf write /net/launchpad/plank/docks/dock1/show-dock-item false && 
     sudo -u $usernam gsettings set org.gnome.desktop.session idle-delay 0 || echo "no mate backup"
  

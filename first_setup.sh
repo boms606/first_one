@@ -27,10 +27,7 @@ cleanafterwards() {
 }
 
 # usernam=$(whoami)
-usernam=$1
-
-# user should be specified - whoami does not work while the script should be executed as root
-[ -z "$usernam" ]  && echo "Please specify a user" && cleanafterwards && exit 1
+[[ -z $1 ]] && usernam=$USER && echo "No user specified, supposing '$usernam'" || usernam=$1 && echo "$usernam is the user"
 
 # create directories 
 mkdir /home/$usernam/scripts
@@ -70,11 +67,12 @@ for i in themes/*.zip; do  sudo unzip $i -d /usr/share/themes/; done
 # load settings from backup if necessary
 [[ -n $(screenfetch | grep -i 'budgie') ]] && sudo -u $usernam dconf load / < bckpfiles/budgie-backup && echo "budgie-backup loaded" || echo "no budgie backup" 
 [[ -n $(echo $DESKTOP_SESSION | grep -i "mate") ]] && sudo -u $usernam dconf load / < bckpfiles/mate-backup && 
-    echo "mate-backup loaded" && sudo -u $usernam dconf write /net/launchpad/plank/docks/dock1/show-dock-item false && 
+    echo "mate-backup loaded" && 
     sudo -u $usernam gsettings set org.gnome.desktop.session idle-delay 0 || echo "no mate backup"
  
     # "-n" means "if not empty string", "&&" means "on success"
     # "-z" means "if empty string",     "||" means "on fail"
+    # mate-bckp: && sudo -u $usernam dconf write /net/launchpad/plank/docks/dock1/show-dock-item false 
 
 #ubuntumate: dconf write /net/launchpad/plank/docks/dock1/show-dock-item false
 #            gsettings set org.gnome.desktop.session idle-delay 0

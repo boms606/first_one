@@ -27,7 +27,7 @@ cleanafterwards() {
 }
 
 # usernam=$(whoami)
-[[ -z $1 ]] && usernam=$USER && echo "No user specified, supposing '$usernam'" || usernam=$1 && echo "$usernam is the user"
+[[ -z $1 ]] && (usernam=$USER && echo "No user specified, supposing '$usernam'") || (usernam=$1 && echo "$usernam is the user")
 
 # create directories 
 mkdir /home/$usernam/scripts

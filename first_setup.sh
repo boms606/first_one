@@ -2,12 +2,13 @@
 
 # todo: - add timestamps to errors.log logs
 #       - troubleshooting for apt install g810 for older debian versions (install via git)
+#       - find ppas to install stuff without snap or flatpak
 
 # redirect errors to logfile named "errors.log"
 exec 2> errors.log
 
 # check whether working directory first_one/
-[[ -z $(ls | grep -i first_setup) ]] && echo "Please run the script from within the folder 'first_setup/'" && exit 1
+[[ -z $(echo $PWD | grep -i /first_one) ]] && echo "Please run the script from within the folder 'first_setup/'" && exit 1
 
 systemdizda() {
     apt install snapd -y && apt update
@@ -48,7 +49,8 @@ apt install obs-studio -y
 apt update
 
 # check whether systemd is present
-pidof systemd && systemdizda || echo "No systemd active, thus snapd not necessary!"
+#pidof systemd && systemdizda || echo "No systemd active, thus snapd not necessary!"
+###
 
 
 # set path to accept own scripts globally
@@ -64,11 +66,11 @@ for i in themes/*.tar.xz; do  sudo tar xvf $i -C /usr/share/themes/; done
 for i in themes/*.tar.gz; do  sudo tar xvf $i -C /usr/share/themes/; done
 for i in themes/*.zip; do  sudo unzip $i -d /usr/share/themes/; done
 
-# load settings from backup if necessary
-[[ -n $(screenfetch | grep -i 'budgie') ]] && sudo -u $usernam dconf load / < bckpfiles/budgie-backup && echo "budgie-backup loaded" || echo "no budgie backup" 
-[[ -n $(echo $DESKTOP_SESSION | grep -i "mate") ]] && sudo -u $usernam dconf load / < bckpfiles/mate-backup && 
-    echo "mate-backup loaded" && 
-    sudo -u $usernam gsettings set org.gnome.desktop.session idle-delay 0 || echo "no mate backup"
+# load settings from backup if necessary            [backups obsolete]
+#[[ -n $(screenfetch | grep -i 'budgie') ]] && sudo -u $usernam dconf load / < bckpfiles/budgie-backup && echo "budgie-backup loaded" || echo "no budgie backup" 
+#[[ -n $(echo $DESKTOP_SESSION | grep -i "mate") ]] && sudo -u $usernam dconf load / < bckpfiles/mate-backup && 
+#    echo "mate-backup loaded" && 
+#    sudo -u $usernam gsettings set org.gnome.desktop.session idle-delay 0 || echo "no mate backup"
  
     # "-n" means "if not empty string", "&&" means "on success"
     # "-z" means "if empty string",     "||" means "on fail"

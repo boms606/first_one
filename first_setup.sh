@@ -4,6 +4,10 @@
 #       - troubleshooting for apt install g810 for older debian versions (install via git)
 #       - find ppas to install stuff without snap or flatpak
 
+
+# usernam=$(whoami)
+[[ -z $1 ]] && (usernam=$USER && echo "No user specified, supposing '$usernam'") || (usernam=$1 && echo "$usernam is the user")
+
 # redirect errors to logfile named "errors.log"
 exec 2> errors.log
 
@@ -26,9 +30,6 @@ cleanafterwards() {
     # remove errors.log when file is empty 
     [[ -z $(cat errors.log) ]] && rm errors.log && echo "script finished without errors" || echo "errors occured"
 }
-
-# usernam=$(whoami)
-[[ -z $1 ]] && (usernam=$USER && echo "No user specified, supposing '$usernam'") || (usernam=$1 && echo "$usernam is the user")
 
 # create directories 
 mkdir /home/$usernam/scripts

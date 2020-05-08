@@ -2,7 +2,7 @@
 
 # todo: - add timestamps to errors.log logs
 #       - troubleshooting for apt install g810 for older debian versions (install via git)
-#       - find ppas to install stuff without snap or flatpak
+#       - find ppas to install stuff without snap or flatpak 
 
 
 # usernam=$(whoami)

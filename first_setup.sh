@@ -27,6 +27,14 @@ systemdizda() {
     [[ -z $(dpkg -l | grep -i skype) ]] && snap install skype --classic
 }
 
+i3izda(){
+    apt install nitrogen -y
+    mkdir -p /home/$usernam/.config/i3 && cp i3back/config /home/$usernam/.config/i3/
+    cp i3back/i3blocks.conf /etc/
+    chown -R $usernam:$usernam /home/$usernam/.config/i3/
+    
+}
+
 cleanafterwards() {
     # remove errors.log when file is empty 
     [[ -z $(cat errors.log) ]] && rm errors.log && echo "script finished without errors" || echo "errors occured"
@@ -42,7 +50,7 @@ cp scrip/* /home/$usernam/scripts/bash/
 # install some stuff
 apt update
 apt upgrade -y && apt update
-apt install tmux htop screenfetch g++ make -y
+apt install tmux htop screenfetch g++ make perl -y
 apt install g810-led -y # || git install ..
 # https://github.com/MatMoul/g810-led/blob/master/INSTALL.md
 apt install skypeforlinux -y
@@ -67,6 +75,7 @@ for i in icons/*.tar.xz; do  sudo tar xvf $i -C /usr/share/icons/; done
 for i in themes/*.tar.xz; do  sudo tar xvf $i -C /usr/share/themes/; done
 for i in themes/*.tar.gz; do  sudo tar xvf $i -C /usr/share/themes/; done
 for i in themes/*.zip; do  sudo unzip $i -d /usr/share/themes/; done
+mkdir -p /usr/share/wallpapers && cp wallpapers/. /usr/share/wallpapers/
 
 # load settings from backup if necessary            [backups obsolete]
 #[[ -n $(screenfetch | grep -i 'budgie') ]] && sudo -u $usernam dconf load / < bckpfiles/budgie-backup && echo "budgie-backup loaded" || echo "no budgie backup" 
@@ -81,9 +90,12 @@ for i in themes/*.zip; do  sudo unzip $i -d /usr/share/themes/; done
 #ubuntumate: dconf write /net/launchpad/plank/docks/dock1/show-dock-item false
 #            gsettings set org.gnome.desktop.session idle-delay 0
 
+[[ -n $(screenfetch | grep -i wm | grep i3) ]] && i3izda || echo "no i3 backup"
+
 # handover to new user
 chown -R $usernam:$usernam ../first_one/
 chown -R $usernam:$usernam /home/$usernam/scripts/
+#chown -R $usernam:$usernam /usr/share/wallpapers/  #its root anyway
 
 # make changes to path permanent
 echo "" >> /etc/profile

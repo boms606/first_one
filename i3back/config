@@ -176,5 +176,9 @@ bar {
 
 assign [class="Code"]	$ws2
 assign [class="obs"]	$ws7
+assign [class="TelegramDesktop"]	$ws5
 
 exec_always --no-startup-id nitrogen --restore
+
+#exec_always --no-startup-id i3-msg 'workspace $ws5; exec /usr/bin/firefox https://web.whatsapp.com'
+#problem is: not in 'background' and restoring previous session additionally

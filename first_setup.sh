@@ -6,7 +6,8 @@
 
 
 # usernam=$(whoami)
-[[ -z $1 ]] && (usernam=$USER && echo "No user specified, supposing '$usernam'") || (usernam=$1 && echo "$usernam is the user")
+[[ -z $1 ]] && { usernam=$USER && echo "No user specified, supposing '$usernam'"; } || { usernam=$1 && echo "$usernam is the user"; }
+
 
 # redirect errors to logfile named "errors.log"
 exec 2> errors.log

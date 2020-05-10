@@ -90,7 +90,7 @@ mkdir -p /usr/share/wallpapers && cp wallpapers/. /usr/share/wallpapers/
 #ubuntumate: dconf write /net/launchpad/plank/docks/dock1/show-dock-item false
 #            gsettings set org.gnome.desktop.session idle-delay 0
 
-[[ -n $(screenfetch | grep -i wm | grep i3) ]] && i3izda || echo "no i3 backup"
+[[ -n $(screenfetch | grep -i wm | grep i3) ]] && { i3izda && echo "i3-backup loaded"; } || echo "no i3 backup"
 
 # handover to new user
 chown -R $usernam:$usernam ../first_one/

@@ -17,15 +17,18 @@ case "$2" in
         echo "using 'pacman' while on arch-based distro"
 
         cinstall(){
-            pacman -S $1
+            pacman -Q $1        # query from installed packages
+            statcode=$?         # get error code: 0 -> found in local library
+            [[ $statcode -ne 0 ]] && yes | pacman -S $1 || echo "$1 already installed"
+            # -ne means 'not equal' -> if not 0 then not installed -> install
         }
 
         cupdate(){
-            pacman -Syy
+            yes | pacman -Syy   # is 'yes' even neccessary?!
         }
 
         cupgrade(){
-            pacman -Syu
+            yes | pacman -Syu   # 'yes' could cause problems with certain updates.. :/
         }
 	    ;;
     *)
@@ -100,6 +103,7 @@ cinstall g810-led # || git install ..
 cinstall skypeforlinux
 cinstall vlc
 cinstall obs-studio
+cinstall code
 cupdate
 
 # check whether systemd is present

@@ -1,8 +1,6 @@
 #! /bin/bash
 
 # todo: - add timestamps to errors.log logs
-#       - troubleshooting for apt install g810 for older debian versions 
-#                             and pacman -S for arch based distros        (maybe install via git)
 #       - find ppas to install stuff without snap or flatpak
 
 dolla1=$1
@@ -91,6 +89,15 @@ systemdizda() {
     [[ -z $(dpkg -l | grep -i skype) ]] && snap install skype --classic
 }
 
+instLogi(){
+    mkdir -p /home/$usernam/tools/
+    unzip bckpfiles/g810-led-master.zip -d /home/$usernam/tools/
+    make -C tools/g810/g810-led-master/ bin LIB=libusb
+    make -C tools/g810/g810-led-master/ install
+
+    chown -R $usernam:$usernam /home/$usernam/tools/
+}
+
 i3izda(){
     cinstall nitrogen
     mkdir -p /home/$usernam/.config/i3 && cp i3back/config /home/$usernam/.config/i3/
@@ -119,17 +126,21 @@ cupgrade
 cinstall tmux 
 cinstall htop 
 cinstall screenfetch 
+cinstall git
 cinstall g++ 
-cinstall make 
+cinstall make
+cinstall libusb 
 cinstall perl 
 cinstall unzip
-cinstall g810-led # || git install ..
-# https://github.com/MatMoul/g810-led/blob/master/INSTALL.md
+cinstall g810-led
+logiinstall=$?
 cinstall skypeforlinux
 cinstall vlc
 cinstall obs-studio
 cinstall code
 cupdate
+
+[[ $logiinstall -ne 0 ]] && instLogi
 
 # check whether systemd is present
 #pidof systemd && systemdizda || echo "No systemd active, thus snapd not necessary!"

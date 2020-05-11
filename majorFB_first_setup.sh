@@ -1,46 +1,23 @@
 #! /bin/bash
 
 # todo: - add timestamps to errors.log logs
-#       - troubleshooting for apt install g810 for older debian versions 
-#                             and pacman -S for arch based distros        (maybe install via git)
+#       - troubleshooting for apt install g810 for older debian versions (install via git)
 #       - find ppas to install stuff without snap or flatpak
 
 
 # usernam=$(whoami)
 [[ -z $1 ]] && { usernam=$USER && echo "No user specified, supposing '$usernam'"; } || { usernam=$1 && echo "$usernam is the user"; }
 
-# be able to add distro specific install methods 
-    # aptitude  for debian  based distributions
-    # pacman    for arch    based distributions
+# be able to add distro specific install methods
 case "$2" in
     arch)
-        echo "using 'pacman' while on arch-based distro"
-
         cinstall(){
-            pacman -S $1
-        }
-
-        cupdate(){
-            pacman -Syy
-        }
-
-        cupgrade(){
-            pacman -Syu
+            echo "pacman -S $1"
         }
 	    ;;
     *)
-        echo "supposing debian-based distro. Using 'aptitude'"
-
         cinstall(){
-            apt install $1 -y
-        }
-
-        cupdate(){
-            apt update
-        }
-
-        cupgrade(){
-            apt update && apt upgrade -y
+            echo "apt install $1 -y"
         }
         ;;
 esac
@@ -52,7 +29,7 @@ exec 2> errors.log
 [[ -z $(echo $PWD | grep -i /first_one) ]] && echo "Please run the script from within the folder 'first_setup/'" && exit 1
 
 systemdizda() {
-    cinstall snapd && cupdate
+    apt install snapd -y && apt update
     # bug on debian not adding snap to $PATH
     [[ -z $(echo $PATH | grep "/snap/bin") ]] && export PATH=$PATH:/snap/bin #&& pathtobeadded+=":/snap/bin"
     snap install code --classic
@@ -64,13 +41,12 @@ systemdizda() {
 }
 
 i3izda(){
-    cinstall nitrogen
+    apt install nitrogen -y
     mkdir -p /home/$usernam/.config/i3 && cp i3back/config /home/$usernam/.config/i3/
-    cp -r i3back/scripts /home/$usernam/.config/i3/
     cp i3back/i3blocks.conf /etc/
     chown -R $usernam:$usernam /home/$usernam/.config/i3/
-    cinstall awesome-terminal-fonts 
-    cinstall fonts-font-awesome
+    apt install awesome-terminal-fonts -y
+    apt install fonts-font-awesome -y
     
 }
 
@@ -87,20 +63,15 @@ mkdir /home/$usernam/scripts/bash
 cp scrip/* /home/$usernam/scripts/bash/
 
 # install some stuff
-cupgrade
-cinstall tmux 
-cinstall htop 
-cinstall screenfetch 
-cinstall g++ 
-cinstall make 
-cinstall perl 
-cinstall unzip
-cinstall g810-led # || git install ..
+apt update
+apt upgrade -y && apt update
+apt install tmux htop screenfetch g++ make perl unzip -y
+apt install g810-led -y # || git install ..
 # https://github.com/MatMoul/g810-led/blob/master/INSTALL.md
-cinstall skypeforlinux
-cinstall vlc
-cinstall obs-studio
-cupdate
+apt install skypeforlinux -y
+apt install vlc -y
+apt install obs-studio -y
+apt update
 
 # check whether systemd is present
 #pidof systemd && systemdizda || echo "No systemd active, thus snapd not necessary!"

@@ -5,14 +5,39 @@
 #                             and pacman -S for arch based distros        (maybe install via git)
 #       - find ppas to install stuff without snap or flatpak
 
+dolla1=$1
+dolla2=$2
+
+goDollarOne(){
+    case "$1" in
+        --help)
+            echo "This script is not finished yet!!"
+            echo ""
+            echo "It just provides some basic configuration"
+            echo "that I dont want to do manually every time I"
+            echo "install a new system"
+            echo ""
+            echo "---- Usage ----"
+            echo ""
+            echo "./firsttry [user name] [debian/arch]"
+            echo "              (you) (default is debian)"
+            echo "You will need sudo privileges"
+            echo ""
+            ;;
+        *)
+            usernam=$1
+            echo "$usernam is the user"
+            ;;
+    esac
+}
 
 # usernam=$(whoami)
-[[ -z $1 ]] && { usernam=$USER && echo "No user specified, supposing '$usernam'"; } || { usernam=$1 && echo "$usernam is the user"; }
+[[ -z $dolla1 ]] && { usernam=$USER && echo "No user specified, supposing '$usernam' ?" && exit 1; } || { goDollarOne $dolla1; }
 
 # be able to add distro specific install methods 
     # aptitude  for debian  based distributions
     # pacman    for arch    based distributions
-case "$2" in
+case "$dolla2" in
     arch)
         echo "using 'pacman' while on arch-based distro"
 

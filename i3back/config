@@ -32,7 +32,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -177,10 +178,13 @@ bar {
 }
 
 assign [class="Code"]	$ws2
+assign [class="code-oss"]       $ws2
 assign [class="obs"]	$ws7
 assign [class="TelegramDesktop"]	$ws5
 
 exec_always --no-startup-id nitrogen --restore
+exec --no-startup-id sleep 2 && xfce4-terminal -e "glances --percpu"
+
 
 #exec_always --no-startup-id i3-msg 'workspace $ws5; exec /usr/bin/firefox https://web.whatsapp.com'
 #problem is: not in 'background' and restoring previous session additionally

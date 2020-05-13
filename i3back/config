@@ -181,10 +181,12 @@ assign [class="Code"]	$ws2
 assign [class="code-oss"]       $ws2
 assign [class="obs"]	$ws7
 assign [class="TelegramDesktop"]	$ws5
+assign [class="Skype"]	$ws5
+assign [class="Celestia"]	$ws10
 
 exec_always --no-startup-id nitrogen --restore
 exec --no-startup-id sleep 2 && xfce4-terminal -e "glances --percpu"
-exec_always --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 
 
 #exec_always --no-startup-id i3-msg 'workspace $ws5; exec /usr/bin/firefox https://web.whatsapp.com'

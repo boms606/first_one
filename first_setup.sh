@@ -135,6 +135,8 @@ cinstall unzip
 #cinstall yes   #find 'yes' 
 cinstall g810-led
 logiinstall=$?
+cinstall ImageMagic
+cinstall gimp
 cinstall skypeforlinux
 cinstall vlc
 cinstall obs-studio

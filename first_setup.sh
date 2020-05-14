@@ -2,6 +2,7 @@
 
 # todo: - add timestamps to errors.log logs
 #       - find ppas to install stuff without snap or flatpak
+#       - put 'echo "0 0 0" | tee /sys/class/scsi_host/host*/scan' into a cronjob
 
 dolla1=$1
 dolla2=$2

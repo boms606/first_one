@@ -194,3 +194,6 @@ exec --no-startup-id nm-applet
 
 #exec_always --no-startup-id i3-msg 'workspace $ws5; exec /usr/bin/firefox https://web.whatsapp.com'
 #problem is: not in 'background' and restoring previous session additionally
+
+#logout to light-dm greeter 
+bindsym $mod+l exec "dm-tool lock"

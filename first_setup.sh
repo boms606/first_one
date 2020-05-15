@@ -26,6 +26,7 @@ goDollarOne(){
             echo ""
             echo "./firsttry [user name] [debian/arch]"
             echo "              (you) (default is debian)"
+            echo ""
             echo "You will need sudo privileges"
             echo ""
             exit 0

@@ -1,0 +1,25 @@
+#! /bin/bash
+
+[[ "$(whoami)" == "root" ]] || { echo "Please run as root!" && exit 1; }
+
+# hard drives before
+hdds=($(ls /dev/ | grep sd))
+
+echo "Forcing scsi rescan.."
+echo "- - -" | tee /sys/class/scsi_host/host?/scan
+echo "..done"
+
+# hard drives after
+hddn=($(ls /dev/ | grep sd))
+
+# differences between before and after
+uniqe=($(echo ${hdds[@]} ${hddn[@]} | tr ' ' '\n' | sort | uniq -u))
+
+
+# check whether before and after are different
+[[ -n "$uniqe" ]] && echo "Change found.. Checking for new device" || { echo "Nothing changed.." && exit 0; }
+
+# check whether after has more elements than before
+[[ $(echo ${hdds[@]}) < $(echo ${hddn[@]}) ]] && echo "Success.. '${uniqe[@]}' found." || { echo "You are fucked! Lost '${uniqe[@]}'." && exit 2; }
+
+exit 0

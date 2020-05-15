@@ -10,10 +10,23 @@
 # wget possible too: 
 # wget -q --no-check-certificate https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --post-data="loginid=nonono&password=nonono&action=Login" --delete-after
 
+### andere ip mit login freischalten ipaddr=134.19.70.195
+
 case "$1" in
     connect)
-        echo "Verbindung zum Internet wird hergestellt.."
-        curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "loginid=$2&password=$3&action=Login" | grep "<small><small>" | cut -f3 -d"<" | cut -f2 -d">"
+        [[ -z $3 ]] && echo "Please specify at least a loginID and a password" && exit 1 || {
+            
+            # check for ip address to login via
+            [[ -z $4 ]] && {
+                # if there is no 4th argument
+                echo "Verbindung zum Internet wird hergestellt.."
+                curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "loginid=$2&password=$3&action=Login" | grep "<small><small>" | cut -f3 -d"<" | cut -f2 -d">"
+            } || {
+                # if there is a 4th argument
+                echo "Verbindung zum Internet wird hergestellt.."
+                curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "loginid=$2&password=$3&ipaddr=$4&action=Login" | grep "<small><small>" | cut -f3 -d"<" | cut -f2 -d">"
+            }
+        }
         ;;
     disconnect)
         echo "Verbindung zum Internet wird getrennt.."
@@ -25,9 +38,10 @@ case "$1" in
         echo "Works by sending a post request to:"
         echo "    https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin"
         echo "with the following data:"
-        echo "    loginid: ***"
-        echo "    password: ***"
-        echo "    action: { Login | Logout }"
+        echo "               action: { Login | Logout }"
+        echo "  (for login)  loginid: ***"
+        echo "  (for login)  password: ***"
+        echo "   (optional)  ipaddr: ***"
         echo "The format for the data is expected as a string with \"&\" as delimeter-symbol"
         echo " "
         echo "In this case \"curl\" is used"

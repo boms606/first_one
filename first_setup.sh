@@ -8,6 +8,7 @@
 #               _set_my_PS1() {
 #                   PS1='[\e[33m\u\e[94m@\e[96m\h \e[94m\W\e[39m] \$ '
 #               ...
+#       - add install 'sensors'
 
 
 dolla1=$1

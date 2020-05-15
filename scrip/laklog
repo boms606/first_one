@@ -10,8 +10,6 @@
 # wget possible too: 
 # wget -q --no-check-certificate https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --post-data="loginid=nonono&password=nonono&action=Login" --delete-after
 
-### andere ip mit login freischalten ipaddr=134.19.70.195
-
 case "$1" in
     connect)
         [[ -z $3 ]] && echo "Please specify at least a loginID and a password" && exit 1 || {
@@ -23,14 +21,21 @@ case "$1" in
                 curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "loginid=$2&password=$3&action=Login" | grep "<small><small>" | cut -f3 -d"<" | cut -f2 -d">"
             } || {
                 # if there is a 4th argument
-                echo "Verbindung zum Internet wird hergestellt.."
+                echo "$4 wird mit Ihrer login-ID freigeschaltet"
                 curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "loginid=$2&password=$3&ipaddr=$4&action=Login" | grep "<small><small>" | cut -f3 -d"<" | cut -f2 -d">"
             }
         }
         ;;
     disconnect)
-        echo "Verbindung zum Internet wird getrennt.."
-        curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "action=Logout" | grep "<big><big>" | cut -f4 -d"<" | cut -f2 -d">"
+        [[ -z $4 ]] && {
+            # if there is no 4th argument
+            echo "Verbindung zum Internet wird getrennt.."
+            curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "action=Logout" | grep "<big><big>" | cut -f4 -d"<" | cut -f2 -d">"
+        } || {
+            # if there is a 4th argument
+            echo "$4 wird für Ihre login-ID gesperrt"
+            curl --insecure -s https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin --data "loginid=$2&password=$3&ipaddr=$4&action=Logout" | grep "<big><big>" | cut -f4 -d"<" | cut -f2 -d">"
+        }
         ;;
     --info)
         echo "Script to connect to the network of Ruhr-Universitaet-Bochum"
@@ -38,16 +43,18 @@ case "$1" in
         echo "Works by sending a post request to:"
         echo "    https://login.rz.ruhr-uni-bochum.de/cgi-bin/laklogin"
         echo "with the following data:"
+        echo " "
         echo "               action: { Login | Logout }"
-        echo "  (for login)  loginid: ***"
+        echo "  (for login)  loginID: ***"
         echo "  (for login)  password: ***"
         echo "   (optional)  ipaddr: ***"
+        echo " "
         echo "The format for the data is expected as a string with \"&\" as delimeter-symbol"
         echo " "
         echo "In this case \"curl\" is used"
         ;;
     *)
-        echo "Usage: laklog {connect|disconnect}"
+        echo "Usage: laklog {connect|disconnect} {loginID} {password} {optional: IP-address}"
         echo "Or try 'laklog --info' for more information"
         exit 1
         ;;

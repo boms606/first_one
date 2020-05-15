@@ -90,7 +90,7 @@ systemdizda() {
     cinstall snapd && cupdate
     # bug on debian not adding snap to $PATH
     [[ -z $(echo $PATH | grep "/snap/bin") ]] && export PATH=$PATH:/snap/bin #&& pathtobeadded+=":/snap/bin"
-    snap install code --classic
+    [[ -z $(dpkg -l | grep -i code) ]] && snap install code --classic
     snap install teams-for-linux
     [[ -z $(dpkg -l | grep -i vlc) ]] && snap install vlc
     snap install spotify
@@ -98,6 +98,7 @@ systemdizda() {
     [[ -z $(dpkg -l | grep -i skype) ]] && snap install skype --classic
 }
 
+# install logitech g810 keyboard drivers from git (repo already saved locally)
 instLogi(){
     mkdir -p /home/$usernam/tools/
     unzip bckpfiles/g810-led-master.zip -d /home/$usernam/tools/

@@ -3,6 +3,12 @@
 # todo: - add timestamps to errors.log logs
 #       - find ppas to install stuff without snap or flatpak
 #       - put 'echo "0 0 0" | tee /sys/class/scsi_host/host*/scan' into a cronjob
+#       - find a way to insert the following "color code" into .bashrc
+#               ...
+#               _set_my_PS1() {
+#                   PS1='[\e[33m\u\e[94m@\e[96m\h \e[94m\W\e[39m] \$ '
+#               ...
+
 
 dolla1=$1
 dolla2=$2

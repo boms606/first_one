@@ -1,0 +1,30 @@
+mkdir: cannot create directory ‘/home//scripts’: Permission denied
+mkdir: cannot create directory ‘/home//scripts/bash’: No such file or directory
+cp: target '/home//scripts/bash/' is not a directory
+./first_setup.sh: line 76: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 68: apt: command not found
+./first_setup.sh: line 72: apt: command not found
+mkdir: cannot create directory ‘/home//tools/’: Permission denied
+checkdir:  cannot create extraction directory: /home//tools
+           Permission denied
+make: *** tools/g810/g810-led-master/: No such file or directory.  Stop.
+make: *** tools/g810/g810-led-master/: No such file or directory.  Stop.
+chown: cannot access '/home//tools/': No such file or directory
+./first_setup.sh: line 164: /etc/tmux.conf: Permission denied
+./first_setup.sh: line 165: /etc/g810-led/profile: Permission denied
+cp: cannot create regular file '/usr/share/wallpapers/woods.jpg': Permission denied

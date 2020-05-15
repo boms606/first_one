@@ -28,6 +28,7 @@ goDollarOne(){
             echo "              (you) (default is debian)"
             echo "You will need sudo privileges"
             echo ""
+            exit 0
             ;;
         *)
             usernam=$1

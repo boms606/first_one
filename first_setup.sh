@@ -145,7 +145,6 @@ cinstall make
 cinstall libusb 
 cinstall perl 
 cinstall unzip
-#cinstall yes   #find 'yes' 
 cinstall g810-led
 logiinstall=$?
 cinstall imagemagick

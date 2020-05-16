@@ -14,6 +14,8 @@
 dolla1=$1
 dolla2=$2
 
+[[ "$(whoami)" == "root" ]] || { echo "Please run as root!" && exit 1; }
+
 goDollarOne(){
     case "$1" in
         --help)

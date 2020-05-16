@@ -87,7 +87,7 @@ esac
 exec 2> errors.log
 
 # check whether working directory first_one/
-[[ -z $(echo $PWD | grep -i /first_one) ]] && echo "Please run the script from within the folder 'first_setup/'" && exit 1
+[[ -z $(echo $PWD | grep -i /first_one) ]] && echo "Please run the script from within the folder 'first_one/'" && exit 1
 
 systemdizda() {
     cinstall snapd && cupdate

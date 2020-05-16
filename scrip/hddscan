@@ -9,6 +9,9 @@ echo "Forcing scsi rescan.."
 echo "- - -" | tee /sys/class/scsi_host/host?/scan
 echo "..done"
 
+# give time to update /dev/
+sleep 2
+
 # hard drives after
 hddn=($(ls /dev/ | grep sd))
 
@@ -17,9 +20,9 @@ uniqe=($(echo ${hdds[@]} ${hddn[@]} | tr ' ' '\n' | sort | uniq -u))
 
 
 # check whether before and after are different
-[[ -n "$uniqe" ]] && echo "Change found.. Checking for new device" || { echo "Nothing changed.." && exit 0; }
+[[ -n "$uniqe" ]] && echo "Change found.. Checking for new device.." || { echo "Nothing changed.." && exit 0; }
 
 # check whether after has more elements than before
-[[ $(echo ${hdds[@]}) < $(echo ${hddn[@]}) ]] && echo "Success.. '${uniqe[@]}' found." || { echo "You are fucked! Lost '${uniqe[@]}'." && exit 2; }
+[[ $(echo ${hdds[@]}) < $(echo ${hddn[@]}) ]] && echo "Success: '${uniqe[@]}' found." || { echo "You are fucked! Lost '${uniqe[@]}'." && exit 0; }
 
 exit 0

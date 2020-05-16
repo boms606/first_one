@@ -171,9 +171,11 @@ echo "set -g default-terminal \"screen-256color\"" > /etc/tmux.conf
 echo -e "a 00006f\ng logo 6f0000\ng multimedia 006f00\ng indicators 006f00\nc" > /etc/g810-led/profile
 
 # get icons and themes
-for i in icons/*.tar.xz; do  sudo tar xvf $i -C /usr/share/icons/; done
-for i in themes/*.tar.xz; do  sudo tar xvf $i -C /usr/share/themes/; done
-for i in themes/*.tar.gz; do  sudo tar xvf $i -C /usr/share/themes/; done
+#for i in icons/*.tar.xz; do  sudo tar xvf $i -C /usr/share/icons/; done
+#for i in themes/*.tar.xz; do  sudo tar xvf $i -C /usr/share/themes/; done
+#for i in themes/*.tar.gz; do  sudo tar xvf $i -C /usr/share/themes/; done
+for i in icons/*.tar.*; do  sudo tar xvf $i -C /usr/share/icons/; done
+for i in themes/*.tar.*; do  sudo tar xvf $i -C /usr/share/themes/; done
 for i in themes/*.zip; do  sudo unzip $i -d /usr/share/themes/; done
 mkdir -p /usr/share/wallpapers && cp wallpapers/* /usr/share/wallpapers/
 

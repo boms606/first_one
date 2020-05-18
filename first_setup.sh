@@ -6,6 +6,7 @@
 #               ...
 #               _set_my_PS1() {
 #                   PS1='[\e[33m\u\e[94m@\e[96m\h \e[94m\W\e[39m] \$ '
+#                   export PS1="\[$(tput setaf 6)\][\[$(tput setaf 2)\]\u\[$(tput setaf 6)\]@\[$(tput setaf 2)\]\h \[$(tput setaf 3)\]\w\[$(tput setaf 6)\]] \\$ \[$(tput sgr0)\]\[$(tput sgr0)\]"
 #               ...
 #       - add install 'sensors'
 

@@ -2,7 +2,6 @@
 
 # todo: - add timestamps to errors.log logs
 #       - find ppas to install stuff without snap or flatpak
-#       - put 'echo "0 0 0" | tee /sys/class/scsi_host/host*/scan' into a cronjob
 #       - find a way to insert the following "color code" into .bashrc
 #               ...
 #               _set_my_PS1() {

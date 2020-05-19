@@ -113,12 +113,13 @@ instLogi(){
 
 i3izda(){
     cinstall nitrogen
+    cinstall glances
+    cinstall xfce4-terminal
     mkdir -p /home/$usernam/.config/i3 && cp i3back/config /home/$usernam/.config/i3/
     cp -r i3back/scripts /home/$usernam/.config/i3/
     cp i3back/i3blocks.conf /etc/
     chown -R $usernam:$usernam /home/$usernam/.config/i3/
-    cinstall awesome-terminal-fonts 
-    cinstall fonts-font-awesome
+    cinstall awesome-terminal-fonts || cinstall fonts-font-awesome
     
 }
 
@@ -142,7 +143,7 @@ cinstall screenfetch
 cinstall git
 cinstall g++ 
 cinstall make
-cinstall libusb 
+cinstall libusb || cinstall libusb-1.0-0 
 cinstall perl 
 cinstall unzip
 cinstall g810-led
@@ -197,7 +198,7 @@ mkdir -p /usr/share/wallpapers && cp wallpapers/* /usr/share/wallpapers/
 # handover to new user
 chown -R $usernam:$usernam ../first_one/
 chown -R $usernam:$usernam /home/$usernam/scripts/
-chown -R $usernam:$usernam /home/$usernam/.bashrc
+chown $usernam:$usernam /home/$usernam/.bashrc
 #chown -R $usernam:$usernam /usr/share/wallpapers/  #its root anyway
 
 # make changes to path permanent

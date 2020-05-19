@@ -2,12 +2,6 @@
 
 # todo: - add timestamps to errors.log logs
 #       - find ppas to install stuff without snap or flatpak
-#       - find a way to insert the following "color code" into .bashrc
-#               ...
-#               _set_my_PS1() {
-#                   PS1='[\e[33m\u\e[94m@\e[96m\h \e[94m\W\e[39m] \$ '
-#                   export PS1="\[$(tput setaf 6)\][\[$(tput setaf 2)\]\u\[$(tput setaf 6)\]@\[$(tput setaf 2)\]\h \[$(tput setaf 3)\]\w\[$(tput setaf 6)\]] \\$ \[$(tput sgr0)\]\[$(tput sgr0)\]"
-#               ...
 #       - add install 'sensors'
 
 
@@ -86,7 +80,7 @@ esac
 # redirect errors to logfile named "errors.log"
 exec 2> errors.log
 
-# check whether working directory first_one/
+# check whether working directory is first_one/
 [[ -z $(echo $PWD | grep -i /first_one) ]] && echo "Please run the script from within the folder 'first_one/'" && exit 1
 
 systemdizda() {

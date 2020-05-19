@@ -168,7 +168,7 @@ export PATH=$PATH:/home/$usernam/scripts/bash && #pathtobeadded+=:/home/$usernam
 # set personalisation variables
 echo "set -g default-terminal \"screen-256color\"" > /etc/tmux.conf
 echo -e "a 00006f\ng logo 6f0000\ng multimedia 006f00\ng indicators 006f00\nc" > /etc/g810-led/profile
-echo "export PS1="\[$(tput setaf 6)\][\[$(tput setaf 2)\]\u\[$(tput setaf 6)\]@\[$(tput setaf 2)\]\h \[$(tput setaf 3)\]\w\[$(tput setaf 6)\]] \\$ \[$(tput sgr0)\]\[$(tput sgr0)\]"" >> /home/$usernam/.bashrc
+echo "export PS1="\[$(tput setaf 6)\][\[$(tput setaf 2)\]\u\[$(tput setaf 6)\]@\[$(tput setaf 2)\]\h \[$(tput setaf 3)\]\w\[$(tput setaf 6)\]] \$ \[$(tput sgr0)\]\[$(tput sgr0)\]"" >> /home/$usernam/.bashrc
 
 # get icons and themes
 #for i in icons/*.tar.xz; do  sudo tar xvf $i -C /usr/share/icons/; done

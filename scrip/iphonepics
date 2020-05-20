@@ -1,0 +1,24 @@
+#! /bin/bash
+
+fformat=$1
+
+case "$1" in 
+    --help)
+        echo " How to use: "
+        echo " - run script in destination folder"
+        echo " - destination file-type is first argument"
+        echo " PermanentMarker"
+        exit 0
+        ;;
+esac
+
+mkdir -p ~/Pictures/Ju
+
+# normalize file endings
+for i in *.HEIC; do  mv $i $(echo "$i" | sed 's/.HEIC/.heic/g'); done
+
+# convert to whatever file-type
+mogrify -format $1 *.heic
+
+exit 0
+

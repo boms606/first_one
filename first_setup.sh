@@ -109,6 +109,7 @@ i3izda(){
     cinstall nitrogen
     cinstall glances
     cinstall xfce4-terminal
+    cinstall thunar
     mkdir -p /home/$usernam/.config/i3 && cp i3back/config /home/$usernam/.config/i3/
     cp -r i3back/scripts /home/$usernam/.config/i3/
     cp i3back/i3blocks.conf /etc/

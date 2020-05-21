@@ -1,0 +1,25 @@
+#! /bin/bash
+
+case $1 in
+    --help)
+        echo "Repair a 'not fully shut down by windows' hard drive."
+        echo "Better dont use on a Windows system partition!!"
+        echo " "
+        echo "Usage:"
+        echo "hddrepair {drive (without /dev/)} {mount point}"
+        echo " "
+        echo "You will need root privileges!"
+        echo -e "\nexample:\nsudo hddrepair sdb3 /mnt/ex\n"
+        echo "A ntfsfix and a remount will be performed"
+        exit 0
+esac
+
+
+drive=$1    #(sda1)
+mp=$2       #(/)
+
+ntfsfix /dev/$drive
+
+mount -o remount,rw $mp
+
+exit 0

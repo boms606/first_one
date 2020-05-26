@@ -15,7 +15,9 @@ esac
 #mkdir -p ~/Pictures/Ju
 
 # normalize file endings
-for i in *.HEIC; do  mv $i $(echo "$i" | sed 's/.HEIC/.heic/g'); done
+[[ -z $(ls -l | grep ".HEIC") ]] && echo "nothing to normalize" ||
+for i in *.HEIC; do  mv $i $(echo "$i" | sed 's/.HEIC/.heic/g'); done;
+echo "made all extensions 'lowercase'"
 
 # convert to whatever file-type
 mogrify -format $fformat *.heic

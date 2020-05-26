@@ -18,7 +18,7 @@ mkdir -p ~/Pictures/Ju
 for i in *.HEIC; do  mv $i $(echo "$i" | sed 's/.HEIC/.heic/g'); done
 
 # convert to whatever file-type
-mogrify -format $1 *.heic
+mogrify -format $fformat *.heic
 
 exit 0
 

@@ -12,7 +12,7 @@ case "$1" in
         ;;
 esac
 
-mkdir -p ~/Pictures/Ju
+#mkdir -p ~/Pictures/Ju
 
 # normalize file endings
 for i in *.HEIC; do  mv $i $(echo "$i" | sed 's/.HEIC/.heic/g'); done

@@ -1,0 +1,6 @@
+#! /bin/bash
+
+mon1='HDMI-1'
+mon2='DP-1'
+
+xrandr --output $mon2 --auto --right-of $mon1

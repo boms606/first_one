@@ -208,10 +208,12 @@ bindsym $mod+shift+b exec "thunar"
 
 
 #setting for dual-monitor
-set $mon1 HDMI-1
-set $mon2 DP-1
+set $mon1 'HDMI-1'
+set $mon2 'DP-1'
 
-exec --no-startup-id xfce4-terminal -e "xrandr --output $mon2 --auto --right-of mon1"
+exec --no-startup-id xrandr --output $mon2 --auto --right-of $mon1
+#exec --no-startup-id ~/.config/i3/scripts/doublemonitor
+
 
 # Moving workspaces between screens 
 bindsym $mod+p move workspace to output right

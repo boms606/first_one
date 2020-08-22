@@ -14,10 +14,15 @@ esac
 
 #mkdir -p ~/Pictures/Ju
 
+[[ -z $fformat ]] && echo "Please specify a destination file type" && exit 1
+
 # normalize file endings
-[[ -z $(ls -l | grep ".HEIC") ]] && echo "nothing to normalize" ||
-for i in *.HEIC; do  mv $i $(echo "$i" | sed 's/.HEIC/.heic/g'); done;
-echo "made all extensions 'lowercase'"
+
+[[ -z $(ls -l | grep ".HEIC") ]] && { echo "nothing to normalize" && exit 1; } ||
+{ for i in *.HEIC; do  mv $i $(echo "$i" | sed 's/.HEIC/.heic/g'); done &&
+echo "made all extensions 'lowercase'"; }
+
+echo "huhu"
 
 # convert to whatever file-type
 mogrify -format $fformat *.heic

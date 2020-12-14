@@ -1,5 +1,0 @@
-mkdir: cannot create directory ‘/home/louis/scripts’: File exists
-mkdir: cannot create directory ‘/home/louis/scripts/bash’: File exists
-E: Unable to locate package libusb
-E: Package 'code' has no installation candidate
-E: Unable to locate package awesome-terminal-fonts

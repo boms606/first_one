@@ -65,6 +65,7 @@ case "$dolla2" in
         }
 	    ;;
     *)
+        dolla2 = "deb"
         echo "supposing debian-based distro. Using 'aptitude'"
 
         cinstall(){
@@ -142,7 +143,7 @@ cinstall screenfetch
 cinstall git
 cinstall g++ 
 cinstall make
-cinstall libusb || cinstall libusb-1.0-0 
+cinstall libusb || cinstall libusb-1.0-0-dev 
 cinstall perl 
 cinstall unzip
 cinstall g810-led
@@ -153,6 +154,7 @@ cinstall skypeforlinux
 cinstall vlc
 cinstall obs-studio
 cinstall code
+[[ "$dolla2" == "deb" ]] && cinstall gdebi && cinstall gparted
 cupdate
 
 [[ $logiinstall -ne 0 ]] && instLogi

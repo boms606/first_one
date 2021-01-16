@@ -65,7 +65,7 @@ case "$dolla2" in
         }
 	    ;;
     *)
-        dolla2 = "deb"
+        dolla2="deb"
         echo "supposing debian-based distro. Using 'aptitude'"
 
         cinstall(){

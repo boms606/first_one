@@ -125,7 +125,7 @@ i3izda(){
 
 cleanafterwards() {
     # remove errors.log when file is empty 
-    [[ -z $(cat errors.log) ]] && rm errors.log && echo "script finished without errors" || echo "errors occured"
+    [[ -z $(cat errors.log) ]] && rm errors.log && echo "script finished without errors" || echo "errors occured. Read \"errors.log\""
 }
 
 # create directories 
@@ -143,11 +143,10 @@ cinstall screenfetch
 cinstall git
 cinstall g++ 
 cinstall make
-cinstall libusb || cinstall libusb-1.0-0-dev 
+cinstall libusb 
+cinstall libusb-1.0-0-dev 
 cinstall perl 
 cinstall unzip
-cinstall g810-led
-logiinstall=$?
 cinstall imagemagick
 cinstall gimp
 cinstall skypeforlinux
@@ -157,7 +156,7 @@ cinstall code
 [[ "$dolla2" == "deb" ]] && cinstall gdebi && cinstall gparted
 cupdate
 
-[[ $logiinstall -ne 0 ]] && instLogi
+instLogi
 
 # check whether systemd is present
 #pidof systemd && systemdizda || echo "No systemd active, thus snapd not necessary!"
@@ -165,7 +164,7 @@ cupdate
 
 
 # set path to accept own scripts globally
-export PATH=$PATH:/home/$usernam/scripts/bash && #pathtobeadded+=:/home/$usernam/scripts/bash
+export PATH=$PATH:/home/$usernam/scripts/bash #&& pathtobeadded+=:/home/$usernam/scripts/bash
 
 # set personalisation variables
 echo "set -g default-terminal \"screen-256color\"" > /etc/tmux.conf

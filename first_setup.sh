@@ -179,6 +179,7 @@ export HISTCONTROL=ignorespace
 
 # get icons and themes
 for i in icons/*.tar.*; do  sudo tar xvf $i -C /usr/share/icons/; done
+for i in icons/*.zip; do  sudo unzip $i -d /usr/share/icons/; done
 for i in themes/*.tar.*; do  sudo tar xvf $i -C /usr/share/themes/; done
 for i in themes/*.zip; do  sudo unzip $i -d /usr/share/themes/; done
 mkdir -p /usr/share/wallpapers && cp wallpapers/* /usr/share/wallpapers/

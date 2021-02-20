@@ -104,8 +104,8 @@ systemdizda() {
 instLogi(){
     mkdir -p /home/$usernam/tools/
     unzip bckpfiles/g810-led-master.zip -d /home/$usernam/tools/
-    make -C /home/$usernam/tools/g810/g810-led-master/ bin LIB=libusb
-    make -C /home/$usernam/tools/g810/g810-led-master/ install
+    make -C /home/$usernam/tools/g810-led-master/ bin LIB=libusb
+    make -C /home/$usernam/tools/g810-led-master/ install
 
     chown -R $usernam:$usernam /home/$usernam/tools/
 }

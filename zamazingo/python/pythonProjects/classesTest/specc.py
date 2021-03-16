@@ -1,9 +1,9 @@
-from vvars import *
+# 'specc.py' with class 'leclass'
+# Dependencies: vgeneral.py (liobrary)
+#               vvars.py (variables; imported in vgenerals.py)
+
 from vgeneral import *
 
-#if __name__ == '__main__':
-
-#vgeneral.writest(vvars.var1)
 writest("Initialize using '[ObjectName] = leclass([name]')")
 
 class leclass:

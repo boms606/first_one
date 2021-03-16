@@ -1,3 +1,4 @@
+from vvars import *
 import datetime#### some library
 
 def writest(w):
@@ -9,4 +10,3 @@ def updateMod():
     nowww = f'{noww:%d.%m.%Y %H:%M:%S}'
 
     return nowww
-    

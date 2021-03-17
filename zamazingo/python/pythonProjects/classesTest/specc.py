@@ -23,13 +23,17 @@ class leclass:
         writest(self.keys[n])
 
     def getInfo(self):
+        writest('-- Info: ' + self.keys['name'] + ' -- ')
         writest('|          Name: ' + self.keys['name'])
         writest('|       Created: ' + self.crda)
         writest('| Last Modified: ' + self.modda)
+        writest('-- End --')
 
     def getAll(self):
         #writest(self.keys)
+        writest('-- Details: ' + self.keys['name'] + ' -- ')
         writest('\n'.join("%s: %s" % item for item in self.keys.items()))
+        writest('-- End --')
 
 
 

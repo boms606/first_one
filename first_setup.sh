@@ -88,6 +88,11 @@ exec 2> errors.log
 # check whether working directory is first_one/
 [[ -z $(echo $PWD | grep -i /first_one) ]] && echo "Please run the script from within the folder 'first_one/'" && exit 1
 
+cyayc(){
+    [[ "$dolla2" == "arch" ]] && echo "Please install '$1' via yay."
+    [[ "$dolla2" == "deb" ]] && cinstall $1 
+}
+
 systemdizda() {
     cinstall snapd && cupdate
     # bug on debian not adding snap to $PATH
@@ -136,7 +141,8 @@ mkdir /home/$usernam/scripts/bash
 cp scrip/* /home/$usernam/scripts/bash/
 
 # install some stuff
-cupgrade
+
+[[ "$dolla2" == "deb" ]] && cupgrade
 cinstall tmux 
 cinstall htop 
 cinstall screenfetch 
@@ -152,7 +158,7 @@ cinstall gimp
 cinstall skypeforlinux
 cinstall vlc
 cinstall obs-studio
-cinstall code
+cyayc code
 [[ "$dolla2" == "deb" ]] && cinstall gdebi && cinstall gparted
 cupdate
 

@@ -89,7 +89,7 @@ exec 2> errors.log
 [[ -z $(echo $PWD | grep -i /first_one) ]] && echo "Please run the script from within the folder 'first_one/'" && exit 1
 
 cyayc(){
-    [[ "$dolla2" == "arch" ]] && echo "Please install '$1' via yay."
+    [[ "$dolla2" == "arch" ]] && echo "Skipping '$1'. Install using yay if neccessary."
     [[ "$dolla2" == "deb" ]] && cinstall $1 
 }
 
@@ -159,7 +159,8 @@ cinstall skypeforlinux
 cinstall vlc
 cinstall obs-studio
 cyayc code
-[[ "$dolla2" == "deb" ]] && cinstall gdebi && cinstall gparted
+cyayc gdebi
+cyayc gparted
 cupdate
 
 instLogi

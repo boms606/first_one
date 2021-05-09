@@ -41,6 +41,16 @@ workspace_layout default
 # Each new window will open fullscreen as a tab (left to right)
 #workspace_layout tabbed
 
+##########################
+# Dual Monitor for Tower #
+##########################
+
+#setting for dual-monitor
+set $mon1 'HDMI-1'
+set $mon2 'DP-1'
+
+exec --no-startup-id xrandr --output $mon2 --auto --right-of $mon1
+
 ##############################
 # extra options for windows: #
 ##############################
@@ -302,8 +312,8 @@ set $ws10 "10:win"
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays 
 # you can get from xrandr command
-#workspace $ws1 output VGA-0
-#workspace $ws2 output VGA-0
+workspace $ws1 output HDMI-1
+workspace $ws2 output DP-1
 #workspace $ws3 output HDMI-0
 #workspace $ws4 output HDMI-0
 #workspace $ws5 output HDMI-0
@@ -376,7 +386,7 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 
 # Autostart apps as you like
 #exec --no-startup-id sleep 2 && xfce4-terminal
-exec --no-startup-id firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/README.md
+#exec --no-startup-id firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/README.md
 #exec --no-startup-id sleep 3 && thunar
 exec --no-startup-id sleep 2 && xfce4-terminal -e "glances --percpu"
 
@@ -506,3 +516,6 @@ bindsym $mod+t exec rofi -show window -display-window "Window : " -line-padding 
 bindsym F10 exec rofi -show window -display-window "Window : " -line-padding 4 \
                 -lines 10 -padding 50 -hide-scrollbar \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
+                
+
+

@@ -51,6 +51,10 @@ set $mon2 'DP-1'
 
 exec --no-startup-id xrandr --output $mon2 --auto --right-of $mon1
 
+# Moving workspaces between screens 
+bindsym $mod+p move workspace to output right
+bindsym $mod+o move workspace to output left
+
 ##############################
 # extra options for windows: #
 ##############################

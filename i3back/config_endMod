@@ -332,6 +332,7 @@ workspace $ws2 output DP-1
 #workspace $ws5 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
+## find out by using 'xprop' and finding 'WM_CLASS(STRING) ='
 #assign [class="Xfce4-terminal"] $ws1
 #assign [class="(?i)firefox"] $ws2
 #assign [class="Thunar"] $ws3
@@ -340,8 +341,9 @@ workspace $ws2 output DP-1
 assign [class="Code"]  			$ws2
 assign [class="code-oss"]  		$ws2
 assign [class="obs"]  			$ws7
-assign [class="TelegramDesktop"]  	$ws5
+assign [class="TelegramDesktop"]    $ws5
 assign [class="Skype"]			$ws5
+assign [class="discord"]		$ws5
 assign [class="Celestia"]  		$ws10
 assign [class="Gimp"]  			$ws7
 assign [class="vlc"]  			$ws6

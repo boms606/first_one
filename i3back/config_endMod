@@ -291,10 +291,19 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 ## App shortcuts
 #bindsym $mod+w exec /usr/bin/firefox
 #bindsym $mod+n exec /usr/bin/thunar
-bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
 bindsym $mod+shift+c exec "code"
 bindsym $mod+shift+f exec "firefox"
 bindsym $mod+shift+b exec "thunar"
+
+##  Take area screenshot
+bindsym $mod+Print --release exec --no-startup-id "import ~/Pictures/$(date '+%Y-%m-%d-%T')-screenshot.png"
+#   area screenshot to clipboard
+bindsym $mod+shift+s --release exec --no-startup-id "import png:- | xclip -selection clipboard -t image/png"
+
+##  Take full screen screenshot
+bindsym Print exec "scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png"
+#   full screen screenshot to clipboard
+bindsym $mod+shift+Print --release exec --no-startup-id "import -window root png:- | xclip -selection clipboard -t image/png"
 
 ##########################################
 # configuration for workspace behaviour: #

@@ -154,6 +154,7 @@ cinstall libusb-1.0-0-dev
 cinstall perl 
 cinstall unzip
 cinstall imagemagick
+cinstall xclip
 cinstall gimp
 cinstall skypeforlinux
 cinstall vlc

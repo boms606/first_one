@@ -52,8 +52,8 @@ set $mon2 'DP-1'
 exec --no-startup-id xrandr --output $mon2 --auto --right-of $mon1
 
 # Moving workspaces between screens 
-bindsym $mod+p move workspace to output right
-bindsym $mod+o move workspace to output left
+bindsym $mod+k move workspace to output right
+bindsym $mod+j move workspace to output left
 
 ##############################
 # extra options for windows: #
@@ -206,8 +206,8 @@ bindsym XF86MonBrightnessUp exec xbacklight +10
 bindsym XF86MonBrightnessDown exec xbacklight -10
 
 # change focus
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
+#bindsym $mod+j focus left  #used for "move workspace to output left"
+#bindsym $mod+k focus down  #used for "move workspace to output right"
 #bindsym $mod+b focus up
 #bindsym $mod+o focus right
 

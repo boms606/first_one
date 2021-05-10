@@ -518,19 +518,19 @@ bindsym $mod+d exec rofi -modi drun -show drun -display-drun "Apps : " -line-pad
                 -columns 2 -padding 50 -hide-scrollbar \
                 -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
                 
-bindsym F9 exec rofi -modi drun -show drun -display-drun "Apps : " -line-padding 4 \
-                -columns 2 -padding 30 -hide-scrollbar \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
+#bindsym F9 exec rofi -modi drun -show drun -display-drun "Apps : " -line-padding 4 \
+#                -columns 2 -padding 30 -hide-scrollbar \
+#                -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
 
 ## rofi bindings for window menu (two bindings F10/$mod+t)
-
-bindsym $mod+t exec rofi -show window -display-window "Window : " -line-padding 4 \
-                -lines 10 -padding 50 -hide-scrollbar \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
-
-bindsym F10 exec rofi -show window -display-window "Window : " -line-padding 4 \
-                -lines 10 -padding 50 -hide-scrollbar \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
+#
+#bindsym $mod+t exec rofi -show window -display-window "Window : " -line-padding 4 \
+#                -lines 10 -padding 50 -hide-scrollbar \
+#                -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
+#
+#bindsym F10 exec rofi -show window -display-window "Window : " -line-padding 4 \
+#                -lines 10 -padding 50 -hide-scrollbar \
+#                -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
                 
 
 

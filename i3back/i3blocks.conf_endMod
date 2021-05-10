@@ -40,29 +40,33 @@
 separator=false
 markup=pango
 
-[terminal]
-full_text= 
-color=#807dfe
-command=xfce4-terminal
+#[terminal]
+#full_text= 
+#color=#807dfe
+#command=xfce4-terminal
 
-[browser]
-full_text= 
-color=#ff7f81
-command=firefox
+#[browser]
+#full_text= 
+#color=#ff7f81
+#command=firefox
 
-[files]
-full_text= 
-color=#7f3fbf
-command=thunar ~/
+#[files]
+#full_text= 
+#color=#7f3fbf
+#command=thunar ~/
 
-[simple-2]
-full_text=: :
-color=#717171
+#[simple-2]
+#full_text=: :
+##color=#717171
+#color=#9650dc
+
 
 [ben]
 #full_text=Hey, this is an i3-system.. Getting familiar to this:)
 full_text=PermanentMarker
-color=#ff00ff
+#color=#d350dc
+#color=#dc50ce
+color=#dc50ce
 
 #[mail]
 #full_text= 
@@ -71,7 +75,8 @@ color=#ff00ff
 
 [simple-2]
 full_text=: :
-color=#717171
+#color=#717171
+color=#9650dc
 
 # Disk usage
 #
@@ -142,7 +147,8 @@ interval=30
 
 [simple-2]
 full_text=: :
-color=#717171
+#color=#717171
+color=#9650dc
 
 [pavucontrol]
 full_text=
@@ -153,9 +159,14 @@ command=~/.config/i3/scripts/volume
 instance=Master
 interval=1
 
-[keybindings]
-full_text=
-command=~/.config/i3/scripts/keyhint.sh
+#[keybindings]
+#full_text=
+#command=~/.config/i3/scripts/keyhint.sh
+
+[simple-2]
+full_text=: :
+#color=#717171
+color=#9650dc
 
 [time]
 #label= 
@@ -164,7 +175,8 @@ interval=1
 
 [simple-2]
 full_text=: :
-color=#717171
+#color=#717171
+color=#9650dc
 
 [uptime]
 label=Uptime: 
@@ -174,7 +186,10 @@ interval=1
 [shutdown_menu]
 full_text= 
 command=~/.config/i3/scripts/shutdown_menu -p rofi -c;
+#color=#792bc7
+color=#9650dc
 
 [simple-2]
 full_text=: :
-color=#717171
+#color=#717171
+color=#9650dc

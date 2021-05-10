@@ -120,11 +120,12 @@ i3izda(){
     cinstall glances
     cinstall xfce4-terminal
     cinstall thunar
+    cinstall awesome-terminal-fonts || cinstall fonts-font-awesome
+    cinstall rofi
     mkdir -p /home/$usernam/.config/i3 && cp i3back/config /home/$usernam/.config/i3/
     cp -r i3back/scripts /home/$usernam/.config/i3/
     cp i3back/i3blocks.conf /etc/
     chown -R $usernam:$usernam /home/$usernam/.config/i3/
-    cinstall awesome-terminal-fonts || cinstall fonts-font-awesome
     
 }
 

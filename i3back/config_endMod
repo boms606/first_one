@@ -471,11 +471,15 @@ strip_workspace_numbers yes
 #		    background         $darkgrey
             background         $transparent
 		    statusline         $white
-#                          		border 		        bg		txt		indicator
-		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
-		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
-		urgent_workspace	$urgentred	    	$urgentred	$white		$purple 
+#                          		border 		    bg  		        txt		        indicator
+#		focused_workspace	$mediumgrey	   	    $grey		        $darkgrey	    $purple
+#		active_workspace	$lightblue      	$mediumgrey	        $darkgrey	    $purple
+#		inactive_workspace	$darkgrey   		$darkgrey	        $grey		    $purple
+#		urgent_workspace	$urgentred	    	$urgentred	        $white		    $purple 
+		focused_workspace	$transparent	   	$grey		        $darkgrey	    $purple
+		active_workspace	$transparent      	$mediumgrey	        $darkgrey	    $purple
+		inactive_workspace	$transparent  		$transparent	    $grey		    $purple
+		urgent_workspace	$transparent	    $urgentred	        $white		    $purple 
 	}
 }
 

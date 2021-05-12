@@ -16,6 +16,9 @@
 # Please see man i3blocks for a complete reference!
 # The man page is also hosted at http://vivien.github.io/i3blocks
 
+#to match with config here is a copy of custom colors
+#set $customgayd		#9650dc
+#set $customgayb		#dc50ce
 
 # List of valid properties:
 #

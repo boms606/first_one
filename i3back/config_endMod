@@ -431,10 +431,13 @@ set $white		#ffffff
 set $black		#000000
 set $purple		#e345ff
 set $darkgrey		#383c4a
+set $darkgreytrans		#383c4a96
 set $grey		#b0b5bd
 set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
 set $transparent    #00000000
+set $customgayd		#9650dc
+set $customgayb		#dc50ce
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
@@ -476,9 +479,10 @@ strip_workspace_numbers yes
 #		active_workspace	$lightblue      	$mediumgrey	        $darkgrey	    $purple
 #		inactive_workspace	$darkgrey   		$darkgrey	        $grey		    $purple
 #		urgent_workspace	$urgentred	    	$urgentred	        $white		    $purple 
-		focused_workspace	$transparent	   	$grey		        $darkgrey	    $purple
-		active_workspace	$transparent      	$mediumgrey	        $darkgrey	    $purple
-		inactive_workspace	$transparent  		$transparent	    $grey		    $purple
+#
+		focused_workspace	$transparent	   	$darkgreytrans	    $white		    $purple
+		active_workspace	$transparent      	$darkgreytrans	    $white		    $purple
+		inactive_workspace	$transparent  		$transparent	    $white			$purple
 		urgent_workspace	$transparent	    $urgentred	        $white		    $purple 
 	}
 }

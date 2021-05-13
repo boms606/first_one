@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Mounts all partitions on the disk on which root is specified
-# u argument unmounts it and deletes folders that have been (or would have been) created by this script
+# Mounts all partitions on the disk on which root is specified if not done already.
+# u argument unmounts it and deletes folders that have been (or would have been) created by this script.
 
 dolla1=$1
 

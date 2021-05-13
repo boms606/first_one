@@ -50,7 +50,7 @@ runsth() {
 #: <<'END'
 	sudo mkdir -p /mnt/$partpath
 
-	sudo mount -t auto -v $pdrivepath $/mnt/$pmountpath 
+	sudo mount -t auto -v $pdrivepath $pmountpath 
 	errlev=${PIPESTATUS[0]}
 
 	if [ $errlev -eq 0 ]
@@ -68,7 +68,7 @@ runsth() {
 		elsecase $pdrivepath 
 	fi
 #END
-	echo "dry run: mounting $pdrivepath to $pmountpath"
+	#echo "dry run: mounting $pdrivepath to $pmountpath"
 }
 
 #obsoleted:

@@ -2,25 +2,34 @@
 
 [[ "$(whoami)" == "root" ]] || { echo "Please run as root!" && exit 1; }
 
-rootpath=$(mount | grep "/ " | awk '{print $1}')	# root is mounted here 	-> /dev/sdc1 
+# root is mounted here 																-> /dev/sdc1
+rootpath=$(mount | grep "/ " | awk '{print $1}')	 
 
-rootpart=${rootpath:(-1)} 	# delivers last character of $rootpath 			-> 1
-#${rootpath: 0:-1}	# delivers path to device 								-> /dev/sdc
+# delivers last character of $rootpath 												-> 1
+rootpart=${rootpath:(-1)}
+
+# delivers path to device 															-> /dev/sdc
+#${rootpath: 0:-1}	
+
+# split (delimeter is '/') and save in temporary array 'a'; then print third item 	-> sdc1
 rootdevicepn=$(echo $rootpath | awk '{split($0,a,"/"); print a[3]}')
-# split (delimeter is '/') and save in array 'a'; then print third item 	-> sdc1
-rootdevice=${rootdevicepn: 0:-1}	# cut last character					-> sdc
 
+# cut last character																-> sdc
+rootdevice=${rootdevicepn: 0:-1}	
 
-# mount | grep dev/sdc | wc -l 		or 	mount | grep sdc | wc -l	delivers only the number of mounted partitions on the disk
-
+# delivers all partitions of the rootdisk in an array								-> [sdc1; sdc2]
 #partsindev=($(lsblk | grep $rootdevice | grep part | awk '{print $1}' | awk '{split($0,a,"─"); print a[2]}'))
-## ## 	delivers all partitions of the rootdisk in an array				-> [sdc1; sdc2]
+
+# delivers all partitions of the rootdisk in an array								-> [1; 2]
 partsindev=($(lsblk | grep $rootdevice | grep part | awk '{print $1}' | awk '{split($0,a,"─"); print a[2]}' | awk '$0=$NF' FS= ))
-#		delivers all partitions of the rootdisk in an array				-> [1; 2]
+		
+# already mounted partitions of the rootdisk in an array							-> [1; 2]
+alrdymntd=($(mount | grep $rootdevicepn | awk '{print $1}' | awk '{split($0,a,"/"); print a[3]}' | awk '$0=$NF' FS= ))		
 
+# those partitions which are not mounted already in an array						-> [1; 2]
+tomount=($(echo ${partsindev[@]} ${alrdymntd[@]} | tr ' ' '\n' | sort | uniq -u))
 
-#todo: mount all partitions except those that are already mounted
-
+# ntfsfix basically..
 elsecase() {
 	drivepath=$1
 	echo "--Doing ntfsfix on $device--" 
@@ -33,11 +42,12 @@ elsecase() {
 	echo " " 
 }
 
+# main -> get input, mount, check
 runsth() {
 	partpath=$1
 	pdrivepath=/dev/$partpath
 	pmountpath=/mnt/$partpath
-
+#: <<'END'
 	sudo mkdir -p /mnt/$partpath
 
 	sudo mount -t auto -v $pdrivepath $/mnt/$pmountpath 
@@ -57,11 +67,13 @@ runsth() {
 		echo "--errorlevel: $errlev--" 
 		elsecase $pdrivepath 
 	fi
-
-	#echo "dry run: mounting $pdrivepath to $pmountpath"
+#END
+	echo "dry run: mounting $pdrivepath to $pmountpath"
 }
 
+#obsoleted:
+#for i in ${partsindev[@]}; do [[ "$i" != "$rootpart" ]] && runsth $rootdevice$i; done	# -> sdc2, sdc3, sdc4, ... except the one with root
 
-for i in ${partsindev[@]}; do [[ "$i" != "$rootpart" ]] && runsth $rootdevice$i; done	# -> sdc2, sdc3, sdc4, ... except the one with root
+for i in ${tomount[@]}; do runsth $rootdevice$i; done	# -> sdc2, sdc3, sdc4, ... except the one with root
 
 exit 0

@@ -1,0 +1,13 @@
+[Unit]
+Description=mount all partitions on root disk
+
+[Service]
+#User=louis
+#WorkingDirectory=/
+ExecStart=/usr/bin/mntotherp
+RemainAfterExit=true
+ExecStop=/usr/bin/mntotherp u
+#Restart=always
+
+[Install]
+WantedBy=multi-user.target

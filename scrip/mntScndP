@@ -1,6 +1,20 @@
 #!/bin/bash
+dolla1=$1
+myname=$(echo $SUDO_USER | awk '{split($0,a,"#"); print a[1]}')
 
 [[ "$(whoami)" == "root" ]] || { echo "Please run as root!" && exit 1; }
+
+noarg() {
+	[[ "$myname" == "root" ]] && { echo -e "User is 'root'. Are you sure? \nIf yes pass 'root' as argument!\nOtherwise specify another user" && exit 1; }
+	[[ -n "$myname" ]] || { echo "Please specify a user name" && exit 1; }
+}
+
+onearg() {
+	myname=$dolla1
+}
+
+
+[[ -n $dolla1 ]] && onearg || noarg
 
 # root is mounted here 																-> /dev/sdc1
 rootpath=$(mount | grep "/ " | awk '{print $1}')	 
@@ -22,12 +36,15 @@ rootdevice=${rootdevicepn: 0:-1}
 
 # delivers all partitions of the rootdisk in an array								-> [1; 2]
 partsindev=($(lsblk | grep $rootdevice | grep part | awk '{print $1}' | awk '{split($0,a,"─"); print a[2]}' | awk '$0=$NF' FS= ))
-		
+#echo "partsindev: ${partsindev[@]}"
+
 # already mounted partitions of the rootdisk in an array							-> [1; 2]
-alrdymntd=($(mount | grep $rootdevicepn | awk '{print $1}' | awk '{split($0,a,"/"); print a[3]}' | awk '$0=$NF' FS= ))		
+alrdymntd=($(mount | grep $rootdevice | awk '{print $1}' | awk '{split($0,a,"/"); print a[3]}' | awk '$0=$NF' FS= ))		
+#echo "alrdymntd: ${alrdymntd[@]}"
 
 # those partitions which are not mounted already in an array						-> [1; 2]
 tomount=($(echo ${partsindev[@]} ${alrdymntd[@]} | tr ' ' '\n' | sort | uniq -u))
+#echo "tomount: ${tomount[@]}"
 
 # ntfsfix basically..
 elsecase() {
@@ -46,9 +63,9 @@ elsecase() {
 runsth() {
 	partpath=$1
 	pdrivepath=/dev/$partpath
-	pmountpath=/mnt/$partpath
+	pmountpath=/run/media/$myname/$partpath 
 #: <<'END'
-	sudo mkdir -p /mnt/$partpath
+	sudo mkdir -p /run/media/$myname/$partpath
 
 	sudo mount -t auto -v $pdrivepath $pmountpath 
 	errlev=${PIPESTATUS[0]}
@@ -69,7 +86,7 @@ runsth() {
 		elsecase $pdrivepath 
 	fi
 #END
-	#echo "dry run: mounting $pdrivepath to $pmountpath"
+	#echo "dry run: mounting $pdrivepath to $pmountpath while user is $myname"
 }
 
 #obsoleted:

@@ -59,6 +59,7 @@ runsth() {
 		if touch $pmountpath/AA
 		then
 			printf "... done\n\n"
+			rm $pmountpath/AA
 		else
 			echo "--errorlevel: $errlev, but no writing permissions--"
 			elsecase $pdrivepath 

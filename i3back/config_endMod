@@ -370,7 +370,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # num lock activated
-#exec --no-startup-id numlockx on
+exec_always --no-startup-id numlockx on
 
 # start conky: 
 #exec_always --no-startup-id conky
@@ -404,11 +404,7 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 #exec --no-startup-id firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/README.md
 #exec --no-startup-id sleep 3 && thunar
 exec --no-startup-id sleep 2 && xfce4-terminal -e "glances --percpu"
-exec_always --no-startup-id "sleep 2 && g810-led -dv 046d -p /etc/g810-led/profile"
-exec_always --no-startup-id "sleep 3 && g810-led -dv 046d -k m 0000ff"
-exec_always --no-startup-id "sleep 4 && g810-led -dv 046d -k m 00006f && g810-led -dv 046d -k z 0000ff"
-exec_always --no-startup-id "sleep 5 && g810-led -dv 046d -k z 00006f && g810-led -dv 046d -k u 0000ff"
-exec_always --no-startup-id "sleep 6 && g810-led -dv 046d -k u 00006f"
+exec_always --no-startup-id gseq810 "mzu" 0.5
 
 # set floating (nontiling)for apps needing it
 for_window [class="Yad" instance="yad"] floating enable

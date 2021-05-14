@@ -87,28 +87,28 @@ bindsym $mod+9    workspace  $ws9
 bindsym $mod+0    workspace  $ws10
 
 # switch to workspace with numpad keys
-bindcode $mod+87 workspace 1
-bindcode $mod+88 workspace 2
-bindcode $mod+89 workspace 3
-bindcode $mod+83 workspace 4
-bindcode $mod+84 workspace 5
-bindcode $mod+85 workspace 6
-bindcode $mod+79 workspace 7
-bindcode $mod+80 workspace 8
-bindcode $mod+81 workspace 9
-bindcode $mod+90 workspace 10
+#bindcode $mod+87 workspace 1
+#bindcode $mod+88 workspace 2
+#bindcode $mod+89 workspace 3
+#bindcode $mod+83 workspace 4
+#bindcode $mod+84 workspace 5
+#bindcode $mod+85 workspace 6
+#bindcode $mod+79 workspace 7
+#bindcode $mod+80 workspace 8
+#bindcode $mod+81 workspace 9
+#bindcode $mod+90 workspace 10
 
 # switch to workspace with numlock numpad keys
-bindcode $mod+Mod2+87 workspace $ws1
-bindcode $mod+Mod2+88 workspace $ws2
-bindcode $mod+Mod2+89 workspace $ws3
-bindcode $mod+Mod2+83 workspace $ws4
-bindcode $mod+Mod2+84 workspace $ws5
-bindcode $mod+Mod2+85 workspace $ws6
-bindcode $mod+Mod2+79 workspace $ws7
-bindcode $mod+Mod2+80 workspace $ws8
-bindcode $mod+Mod2+81 workspace $ws9
-bindcode $mod+Mod2+90 workspace $ws10
+#bindcode $mod+Mod2+87 workspace $ws1
+#bindcode $mod+Mod2+88 workspace $ws2
+#bindcode $mod+Mod2+89 workspace $ws3
+#bindcode $mod+Mod2+83 workspace $ws4
+#bindcode $mod+Mod2+84 workspace $ws5
+#bindcode $mod+Mod2+85 workspace $ws6
+#bindcode $mod+Mod2+79 workspace $ws7
+#bindcode $mod+Mod2+80 workspace $ws8
+#bindcode $mod+Mod2+81 workspace $ws9
+#bindcode $mod+Mod2+90 workspace $ws10
 
 
 # move focused container to workspace
@@ -125,28 +125,28 @@ bindsym $mod+Shift+0    move container to workspace  $ws10
 
 
 # move focused container to workspace with numpad keys
-bindcode $mod+Shift+Mod2+87 	move container to workspace  $ws1
-bindcode $mod+Shift+Mod2+88 	move container to workspace  $ws2
-bindcode $mod+Shift+Mod2+89 	move container to workspace  $ws3
-bindcode $mod+Shift+Mod2+83 	move container to workspace  $ws4
-bindcode $mod+Shift+Mod2+84 	move container to workspace  $ws5
-bindcode $mod+Shift+Mod2+85 	move container to workspace  $ws6
-bindcode $mod+Shift+Mod2+79 	move container to workspace  $ws7
-bindcode $mod+Shift+Mod2+80 	move container to workspace  $ws8
-bindcode $mod+Shift+Mod2+81 	move container to workspace  $ws9
-bindcode $mod+Shift+Mod2+90 	move container to workspace  $ws10
+#bindcode $mod+Shift+Mod2+87 	move container to workspace  $ws1
+#bindcode $mod+Shift+Mod2+88 	move container to workspace  $ws2
+#bindcode $mod+Shift+Mod2+89 	move container to workspace  $ws3
+#bindcode $mod+Shift+Mod2+83 	move container to workspace  $ws4
+#bindcode $mod+Shift+Mod2+84 	move container to workspace  $ws5
+#bindcode $mod+Shift+Mod2+85 	move container to workspace  $ws6
+#bindcode $mod+Shift+Mod2+79 	move container to workspace  $ws7
+#bindcode $mod+Shift+Mod2+80 	move container to workspace  $ws8
+#bindcode $mod+Shift+Mod2+81 	move container to workspace  $ws9
+#bindcode $mod+Shift+Mod2+90 	move container to workspace  $ws10
 
 # move focused container to workspace with numpad keys
-bindcode $mod+Shift+87 	 move container to workspace  $ws1
-bindcode $mod+Shift+88 	 move container to workspace  $ws2
-bindcode $mod+Shift+89 	 move container to workspace  $ws3
-bindcode $mod+Shift+83 	 move container to workspace  $ws4
-bindcode $mod+Shift+84 	 move container to workspace  $ws5
-bindcode $mod+Shift+85 	 move container to workspace  $ws6
-bindcode $mod+Shift+79 	 move container to workspace  $ws7
-bindcode $mod+Shift+80 	 move container to workspace  $ws8
-bindcode $mod+Shift+81 	 move container to workspace  $ws9
-bindcode $mod+Shift+90 	 move container to workspace  $ws10
+#bindcode $mod+Shift+87 	 move container to workspace  $ws1
+#bindcode $mod+Shift+88 	 move container to workspace  $ws2
+#bindcode $mod+Shift+89 	 move container to workspace  $ws3
+#bindcode $mod+Shift+83 	 move container to workspace  $ws4
+#bindcode $mod+Shift+84 	 move container to workspace  $ws5
+#bindcode $mod+Shift+85 	 move container to workspace  $ws6
+#bindcode $mod+Shift+79 	 move container to workspace  $ws7
+#bindcode $mod+Shift+80 	 move container to workspace  $ws8
+#bindcode $mod+Shift+81 	 move container to workspace  $ws9
+#bindcode $mod+Shift+90 	 move container to workspace  $ws10
 
 # resize window (you can also use the mouse for that):
 mode "resize" {
@@ -404,7 +404,7 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 #exec --no-startup-id firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/README.md
 #exec --no-startup-id sleep 3 && thunar
 exec --no-startup-id sleep 2 && xfce4-terminal -e "glances --percpu"
-exec_always --no-startup-id gseq810 "mzu" 0.5
+exec_always --no-startup-id sleep 5 && g810-led -dv 046d -a ffffff && sleep 0.5 && g810-led -dv 046d -p /etc/g810-led/profile && sleep 0.5 && gseq810 "fuck zou11" 0.2
 
 # set floating (nontiling)for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
@@ -542,6 +542,21 @@ bindsym $mod+d exec rofi -modi drun -show drun -display-drun "Apps : " -line-pad
 #bindsym F10 exec rofi -show window -display-window "Window : " -line-padding 4 \
 #                -lines 10 -padding 50 -hide-scrollbar \
 #                -show-icons -drun-icon-theme "Arc-X-D" -font "Noto Sans Regular 11"
-                
+
+# Close all windows on all workspaces (any class string)
+#bindsym $mod+Shift+q [class=”.*”] kill
+
+# Close all windows on workspace x (name stored in $wsx)
+#bindsym $mod+Ctrl+87 [workspace=$ws1] kill
+#bindsym $mod+Ctrl+88 [workspace=$ws2] kill
+#bindsym $mod+Ctrl+89 [workspace=$ws3] kill
+#bindsym $mod+Ctrl+83 [workspace=$ws4] kill
+#bindsym $mod+Ctrl+84 [workspace=$ws5] kill
+#bindsym $mod+Ctrl+85 [workspace=$ws6] kill
+#bindsym $mod+Ctrl+79 [workspace=$ws7] kill
+#bindsym $mod+Ctrl+80 [workspace=$ws8] kill
+#bindsym $mod+Ctrl+81 [workspace=$ws9] kill
+#bindsym $mod+Ctrl+90 [workspace=$ws10] kill
+
 
 

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#usage:     gseq810 [text] [sleep time in seconds]
+#example1:  gseq810 hello
+#example2:  gseq810 hello 0.5
+#example3:  gseq810 "hello world"
+#example4:  gseq810 "Hello world" 2
+
+
+text=$1
+slp=$2
+[[ -z "$slp" ]] && slp=0.5
+
+
+for ((i=1;i<=${#text};i++))
+do
+k=${text:$i-1:1}
+[[ "${text:$i-1:1}" == " " ]] && k=space
+g810-led -dv 046d -k $k ff0000
+sleep $slp
+g810-led -dv 046d -p /etc/g810-led/profile
+sleep 0.1
+done
+
+g810-led -dv 046d -p /etc/g810-led/profile
+
+exit 0

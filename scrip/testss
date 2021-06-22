@@ -1,0 +1,10 @@
+#! /bin/bash
+
+for ((i=9;i<14;i++)) 
+do 
+a="02.07.21, ${i}:"
+    for ((j=0;j<6;j++))
+    do b="${j}0 Uhr"
+    echo $a$b 
+    done
+done

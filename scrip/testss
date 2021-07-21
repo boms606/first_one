@@ -1,8 +1,20 @@
 #! /bin/bash
 
-for ((i=9;i<14;i++)) 
+nr=""
+tag="5) 03.09.21"
+
+for ((i=10;i<12;i++)) 
 do 
-a="02.07.21, ${i}:"
+a="$tag, ${i}:"
+    for ((j=0;j<6;j++))
+    do b="${j}0 Uhr"
+    echo $a$b 
+    done
+done
+
+for ((i=13;i<15;i++)) 
+do 
+a="$tag, ${i}:"
     for ((j=0;j<6;j++))
     do b="${j}0 Uhr"
     echo $a$b 

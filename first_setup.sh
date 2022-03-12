@@ -181,6 +181,7 @@ export PATH=$PATH:/home/$usernam/scripts/bash #&& pathtobeadded+=:/home/$usernam
 
 # set personalisation variables
 echo "set -g default-terminal \"screen-256color\"" > /etc/tmux.conf
+echo "set-option -g default-command '/bin/bash'" >> /etc/tmux.conf
 echo -e "a 00006f\ng logo 6f0000\ng multimedia 006f00\ng indicators 006f00\nc" > /etc/g810-led/profile
 
 # append bckpfiles/profileAppend to /home/$usernam/.bashrc

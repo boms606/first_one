@@ -2,8 +2,10 @@
 
 ;fallback in case there is no transparency available
 format-background = #222526
+format-transparent = #222526
 
 ;actual colors
+transparent = 00000000
 background = #aa222526
 foreground = #dfbf8e
 standpref = #222526

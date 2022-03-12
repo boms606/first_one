@@ -289,12 +289,12 @@ label = " %gb_used% %{A}/ %gb_total% %{A}(%percentage_used% %) "
 type=custom/text
 ;;haskell
 content = 
-content-font = 4
+;;content-font = 4
 ;;arch
 ;content = 
 ;content-font = 3
-content-foreground= ${color.standpref}
-content-background = ${color.blue} 
+content-foreground= ${color.blue}
+content-background = ${color.standpref} 
 content-padding=1
 ;click-left=def-dmenu
 click-left=rofi -show drun -display-drun "Apps :" -show-icons
@@ -379,3 +379,16 @@ label = %date%
 label-foreground = ${color.standpref}
 label-background = ${color.blue}
 label-padding = 1
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/exitmenu]
+type=custom/text
+content = 
+;content-font = 2
+content-foreground= ${color.red}
+content-background = ${color.standpref} 
+content-padding=1
+
+click-left=~/.config/i3/scripts/shutdown_menu -p rofi -c
+

@@ -97,7 +97,8 @@ color=#9650dc
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label= 
+#label= #gone after update:/
+label= 
 command=~/.config/i3/scripts/memory
 interval=2
 

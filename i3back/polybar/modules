@@ -343,3 +343,25 @@ ramp-signal-4 = " "
 ramp-signal-foreground = ${color.standpref}
 ramp-signal-background = ${color.magenta}
 ramp-signal-font = 2
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/uptime]
+type = custom/script
+
+interval = 1
+format-margin = 0
+
+exec = uptime | awk '{print $3}' | sed 's/,//g'
+
+format-prefix = 
+format-prefix-font = 1
+format-prefix-foreground = ${color.standpref}
+format-prefix-background = ${color.magenta}
+
+label = %output%
+label-foreground = ${color.standpref}
+label-background = ${color.magenta}
+label-padding = 1
+
+

@@ -190,4 +190,11 @@ content-font = 3
 content-background = ${color.magenta}
 content-foreground = ${color.red}
 
+[module/MPL]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.blue}
+content-foreground = ${color.magenta}
+
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_

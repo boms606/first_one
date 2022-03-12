@@ -122,15 +122,15 @@ i3izda(){
     cinstall thunar
     cinstall awesome-terminal-fonts || cinstall fonts-font-awesome
     cinstall adobe-source-code-pro-fonts
-    cinstall ttf-nerd-fonts-symbols
-    cinstall ttf-iosevka-nerd
     cinstall rofi
     cinstall numlockx
     mkdir -p /home/$usernam/.config/i3 && cp i3back/config /home/$usernam/.config/i3/
     cp -r i3back/scripts /home/$usernam/.config/i3/
     cp i3back/i3blocks.conf /etc/
     chown -R $usernam:$usernam /home/$usernam/.config/i3/
-    xfce4-terminal -e 'echo "You will have to: yay -S nerd-fonts-hack .. in order to be able to display the polybar properly :)"' --hold &
+    xfce4-terminal -e 'echo -e "You will have to:\n    yay -S nerd-fonts-hack\nin order to be able to display the polybar properly :)"' --hold &
+#    cinstall ttf-nerd-fonts-symbols
+#    cinstall ttf-iosevka-nerd
 }
 
 cleanafterwards() {

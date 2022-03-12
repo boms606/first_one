@@ -409,6 +409,11 @@ exec_always --no-startup-id "polybar bar2"
 exec --no-startup-id sleep 2 && xfce4-terminal -e "glances --percpu"
 exec_always --no-startup-id sleep 5 && g810-led -dv 046d -a ffffff && sleep 0.5 && g810-led -dv 046d -p /etc/g810-led/profile && sleep 0.5 && gseq810 "fuck zou11" 0.2
 
+#prevent screen blank / screensaver
+exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s noblank
+
 # set floating (nontiling)for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable

@@ -124,6 +124,7 @@ i3izda(){
     cinstall adobe-source-code-pro-fonts
     cinstall rofi
     cinstall numlockx
+    cinstall xed
     mkdir -p /home/$usernam/.config/i3 && cp i3back/config /home/$usernam/.config/i3/
     cp -r i3back/scripts /home/$usernam/.config/i3/
     cp i3back/i3blocks.conf /etc/

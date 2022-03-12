@@ -13,12 +13,13 @@ content-foreground = ${color.background}
 [module/dot]
 type = custom/text
 ;content = 
-content = ""
+;content = ""
+content = " "
 
-content-font = 3
+content-font = 1
 content-background = ${color.background}
 content-foreground = ${color.altblack}
-content-padding = 1
+content-padding = 0.5
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 

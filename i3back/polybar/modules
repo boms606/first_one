@@ -287,12 +287,17 @@ label = "%{A1:terminal -e htop &:} %mb_used% %{A}"
 
 [module/launcher]
 type=custom/text
-content =  
+;;haskell
+content = 
 content-font = 4
+;;arch
+;content = 
+;content-font = 3
 content-foreground= ${color.standpref}
 content-background = ${color.blue} 
 content-padding=1
-click-left=def-dmenu
+;click-left=def-dmenu
+click-left=rofi -show drun -display-drun "Apps :" -show-icons
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 

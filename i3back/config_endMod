@@ -440,6 +440,7 @@ set $grey		#b0b5bd
 set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
 set $transparent    #00000000
+set $blurred		#22252640
 set $customgayd		#9650dc
 set $customgayb		#dc50ce
 
@@ -460,30 +461,31 @@ client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
 bar {
 		tray_output none
 		font pango:Noto Sans Regular 10, FontAwesome 10
+		#font pango:Noto Sans Regular 0, FontAwesome 0
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-		position bottom 
-		i3bar_command i3bar --transparency
-	# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
-	# reference: https://i3wm.org/docs/userguide.html#_tray_output
+	    position bottom 
+	    i3bar_command i3bar --transparency
+		# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
+		# reference: https://i3wm.org/docs/userguide.html#_tray_output
 		#tray_output primary     # comment out in a dual monitor setup
 		tray_padding 0
 
-	# When strip_workspace_numbers is set to yes, 
-	# any workspace that has a name of the form 
-	# “[n][:][NAME]” will display only the name.
-	strip_workspace_numbers yes
-	##strip_workspace_name no
+		# When strip_workspace_numbers is set to yes, 
+		# any workspace that has a name of the form 
+		# “[n][:][NAME]” will display only the name.
+		strip_workspace_numbers yes
+		##strip_workspace_name no
 
 		colors {
 		separator          $purple
-		background         $transparent
+		background         $blurred
 		statusline         $white
 
 #                          		border 		    bg  		        txt		        indicator
-		focused_workspace	$transparent	   	$darkgreytrans	    $white		    $purple
-		active_workspace	$transparent      	$darkgreytrans	    $white		    $purple
-		inactive_workspace	$transparent  		$transparent	    $white			$purple
-		urgent_workspace	$transparent	    $urgentred	        $white		    $purple 
+		focused_workspace	$blurred		   	$darkgreytrans	    $white		    $purple
+		active_workspace	$blurred   		   	$darkgreytrans	    $white		    $purple
+		inactive_workspace	$blurred  			$blurred		    $white			$purple
+		urgent_workspace	$blurred		    $urgentred	        $white		    $purple 
 	}
 }
 
@@ -499,7 +501,6 @@ bar {
 
 		    colors {
 		    separator          $transparent
-#		    background         $darkgrey
             background         $transparent
 		    statusline         $transparent
 #

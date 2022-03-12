@@ -489,28 +489,6 @@ bar {
 	}
 }
 
-# dummy bar at the top to provide space for polybar
-bar {
-		tray_output none
-		font pango:Noto Sans Regular 27, FontAwesome 30
-	    position top 
-	    i3bar_command i3bar --transparency
-
-		strip_workspace_numbers yes
-		strip_workspace_name yes
-
-		    colors {
-		    separator          $transparent
-            background         $transparent
-		    statusline         $transparent
-#
-		focused_workspace	$transparent	   	$transparent	    $transparent		    $transparent
-		active_workspace	$transparent      	$transparent	    $transparent		    $transparent
-		inactive_workspace	$transparent  		$transparent	    $transparent			$transparent
-		urgent_workspace	$transparent	    $transparent		$transparent		    $transparent 
-	}
-}
-
 # you can add different bars for multidisplay setups on each display:
 # set output HDMI-0 to the display you want the bar, --transparency can be set.
 # Transparency needs rgba color codes to be used where the last two letters are the transparency factor see here:

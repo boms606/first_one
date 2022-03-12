@@ -1,7 +1,12 @@
 [color]
 
-background = #222526
+;fallback in case there is no transparency available
+format-background = #222526
+
+;actual colors
+background = #aa222526
 foreground = #dfbf8e
+standpref = #222526
 black = #665c54
 red = #ea6962
 green = #a9b665

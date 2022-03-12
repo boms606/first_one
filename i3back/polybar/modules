@@ -9,7 +9,7 @@ format = <ramp> <label>
 format-background = ${color.yellow}
 
 label = %percentage%%
-label-foreground = ${color.background}
+label-foreground = ${color.standpref}
 
 ramp-0 = 
 ramp-1 = 
@@ -22,7 +22,7 @@ ramp-7 = 
 ramp-8 = 
 ramp-9 = 
 ramp-font = 2
-ramp-foreground = ${color.background}
+ramp-foreground = ${color.standpref}
 
 [module/brightness]
 type = internal/backlight
@@ -38,7 +38,7 @@ format-background = ${color.yellow}
 format-padding = 1
 
 label = %percentage%%
-label-foreground = ${color.background}
+label-foreground = ${color.standpref}
 
 ramp-0 = 
 ramp-1 = 
@@ -51,7 +51,7 @@ ramp-7 = 
 ramp-8 = 
 ramp-9 = 
 ramp-font = 2
-ramp-foreground = ${color.background}
+ramp-foreground = ${color.standpref}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -69,7 +69,7 @@ format-volume = <ramp-volume><label-volume>
 format-muted = <label-muted>
 format-muted-prefix = " "
 format-muted-prefix-font = 2
-format-muted-prefix-foreground = ${color.background}
+format-muted-prefix-foreground = ${color.standpref}
 format-muted-prefix-background = ${color.green}
 
 label-volume = "%percentage%% "
@@ -78,8 +78,8 @@ label-muted = "Mute"
 label-volume-background = ${color.green}
 label-muted-background = ${color.green}
 
-label-volume-foreground = ${color.background}
-label-muted-foreground = ${color.background}
+label-volume-foreground = ${color.standpref}
+label-muted-foreground = ${color.standpref}
 
 ramp-volume-0 = " "
 ramp-volume-1 = " "
@@ -92,7 +92,7 @@ ramp-volume-7 = " "
 ramp-volume-8 = " "
 ramp-volume-9 = " "
 ramp-volume-font = 2
-ramp-volume-foreground = ${color.background}
+ramp-volume-foreground = ${color.standpref}
 ramp-volume-background = ${color.green}
 
 ramp-headphones-0 = 
@@ -119,7 +119,7 @@ format-discharging = <ramp-capacity><label-discharging>
 format-full = <label-full>
 format-full-prefix = " "
 format-full-prefix-font = 2
-format-full-prefix-foreground = ${color.background}
+format-full-prefix-foreground = ${color.standpref}
 format-full-prefix-background = ${color.red}
 
 label-charging = %percentage%%
@@ -130,9 +130,9 @@ label-charging-background = ${color.red}
 label-discharging-background = ${color.red}
 label-full-background = ${color.red}
 
-label-charging-foreground = ${color.background}
-label-discharging-foreground = ${color.background}
-label-full-foreground = ${color.background}
+label-charging-foreground = ${color.standpref}
+label-discharging-foreground = ${color.standpref}
+label-full-foreground = ${color.standpref}
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
@@ -140,7 +140,7 @@ ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
 ramp-capacity-font = 2
-ramp-capacity-foreground = ${color.background}
+ramp-capacity-foreground = ${color.standpref}
 ramp-capacity-background = ${color.red}
 
 animation-charging-0 = " "
@@ -149,7 +149,7 @@ animation-charging-2 = " "
 animation-charging-3 = " "
 animation-charging-4 = " "
 animation-charging-font = 2
-animation-charging-foreground = ${color.background}
+animation-charging-foreground = ${color.standpref}
 animation-charging-background = ${color.red}
 animation-charging-framerate = 750
 
@@ -219,8 +219,8 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-padding = 0
-format-prefix-foreground = ${color.background}
-format-foreground = ${color.background}
+format-prefix-foreground = ${color.standpref}
+format-foreground = ${color.standpref}
 format-background = ${color.green}
 label = "%{A1:terminal -e gtop &:}%percentage%% %{A}"
 
@@ -234,11 +234,11 @@ time = "%I:%M %p"
 time-alt = "%A, %m/%d/%y"
 
 format-prefix = 
-format-prefix-foreground = ${color.background}
+format-prefix-foreground = ${color.standpref}
 format-prefix-background = ${color.blue}
 
 label = %time%
-label-foreground = ${color.background}
+label-foreground = ${color.standpref}
 label-background = ${color.blue}
 label-padding = 1
 
@@ -253,17 +253,17 @@ fixed-values = true
 
 format-mounted = <label-mounted>
 format-mounted-prefix = " "
-format-mounted-prefix-foreground = ${color.background}
+format-mounted-prefix-foreground = ${color.standpref}
 format-mounted-prefix-background = ${color.cyan}
 
 format-unmounted = <label-unmounted>
 format-unmounted-prefix = " "
-format-unmounted-prefix-foreground = ${color.background}
+format-unmounted-prefix-foreground = ${color.standpref}
 format-unmounted-prefix-background = ${color.cyan}
 
 label-mounted = "%{A1:terminal -e ncdu &:} %free%%{A}"
 label-unmounted = " %mountpoint%: NA"
-label-mounted-foreground = ${color.background}
+label-mounted-foreground = ${color.standpref}
 
 label-mounted-background = ${color.cyan}
 label-unmounted-background = ${color.cyan}
@@ -277,8 +277,8 @@ interval = 1
 
 format = <label>
 format-prefix = " "
-format-prefix-foreground = ${color.background}
-format-foreground = ${color.background}
+format-prefix-foreground = ${color.standpref}
+format-foreground = ${color.standpref}
 format-background = ${color.yellow}
 
 label = "%{A1:terminal -e htop &:} %mb_used% %{A}"
@@ -289,7 +289,7 @@ label = "%{A1:terminal -e htop &:} %mb_used% %{A}"
 type=custom/text
 content =  
 content-font = 4
-content-foreground= ${color.background}
+content-foreground= ${color.standpref}
 content-background = ${color.blue} 
 content-padding=1
 click-left=def-dmenu
@@ -317,14 +317,14 @@ format-connected = <ramp-signal><label-connected>
 format-disconnected = <label-disconnected>
 format-disconnected-prefix = "睊 "
 format-disconnected-prefix-font = 2
-format-disconnected-foreground = ${color.background}
+format-disconnected-foreground = ${color.standpref}
 format-disconnected-background = ${color.magenta}
 
 label-connected = "%{A1:def-nmdmenu &:}%essid%%{A}"
 label-disconnected = "%{A1:def-nmdmenu &:}Offline%{A}"
 
-label-connected-foreground = ${color.background}
-label-disconnected-foreground = ${color.background}
+label-connected-foreground = ${color.standpref}
+label-disconnected-foreground = ${color.standpref}
 
 label-connected-background = ${color.magenta}
 label-disconnected-background = ${color.magenta}
@@ -334,6 +334,6 @@ ramp-signal-1 = " "
 ramp-signal-2 = " "
 ramp-signal-3 = " "
 ramp-signal-4 = " "
-ramp-signal-foreground = ${color.background}
+ramp-signal-foreground = ${color.standpref}
 ramp-signal-background = ${color.magenta}
 ramp-signal-font = 2

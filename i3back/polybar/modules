@@ -281,7 +281,8 @@ format-prefix-foreground = ${color.standpref}
 format-foreground = ${color.standpref}
 format-background = ${color.yellow}
 
-label = "%{A1:terminal -e htop &:} %mb_used% %{A}"
+label = " %gb_used% %{A}/ %gb_total% %{A}(%percentage_used% %) "
+;label = "%{A1:terminal -e htop &:} %gb_used% %{A}/ %gb_total% %{A}(%percentage_used% %) "
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 

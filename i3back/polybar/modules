@@ -191,21 +191,21 @@ format = <label-state>
 label-monitor = %name%
 
 label-active = %icon%
-label-active-background = ${color.black}
+label-active-background = ${color.background}
 label-active-foreground = ${color.blue}
 label-active-underline = ${color.blue}
 
 label-occupied = %icon%
 label-occupied-foreground = ${color.green}
-label-occupied-background = ${color.black}
+label-occupied-background = ${color.background}
 
 label-urgent = %icon%
 label-urgent-foreground = ${color.red}
-label-urgent-background = ${color.black}
+label-urgent-background = ${color.background}
 label-urgent-underline = ${color.red}
 
 label-empty = %icon%
-label-empty-background = ${color.black}
+label-empty-background = ${color.background}
 
 label-active-padding = 1
 label-urgent-padding = 1
@@ -221,7 +221,7 @@ format-prefix = "  "
 format-padding = 0
 format-prefix-foreground = ${color.standpref}
 format-foreground = ${color.standpref}
-format-background = ${color.green}
+format-background = #b95
 label = "%{A1:terminal -e gtop &:}%percentage%% %{A} "
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -234,11 +234,11 @@ time = "%H:%M"
 
 format-prefix = " "
 format-prefix-foreground = ${color.standpref}
-format-prefix-background = ${color.cyan}
+format-prefix-background = ${color.yellow}
 
 label = %time%
 label-foreground = ${color.standpref}
-label-background = ${color.cyan}
+label-background = ${color.yellow}
 label-padding = 1
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -278,7 +278,7 @@ format = <label>
 format-prefix = "  "
 format-prefix-foreground = ${color.standpref}
 format-foreground = ${color.standpref}
-format-background = ${color.yellow}
+format-background = #6b7
 
 label = " %gb_used% %{A}/ %gb_total% %{A}(%percentage_used% %) "
 ;label = "%{A1:terminal -e htop &:} %gb_used% %{A}/ %gb_total% %{A}(%percentage_used% %) "
@@ -356,11 +356,11 @@ exec = uptime | awk '{print $3}' | sed 's/,//g'
 format-prefix = " "
 format-prefix-font = 1
 format-prefix-foreground = ${color.standpref}
-format-prefix-background = ${color.magenta}
+format-prefix-background = #b6a
 
 label = %output%
 label-foreground = ${color.standpref}
-label-background = ${color.magenta}
+label-background = #b6a
 label-padding = 1
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_

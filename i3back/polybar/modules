@@ -392,3 +392,23 @@ content-padding=1
 
 click-left=~/.config/i3/scripts/shutdown_menu -p rofi -c
 
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/checkcon]
+type = custom/script
+
+interval = 5
+format-margin = 0
+
+exec = /home/louis/scripts/bash/./checkcon
+
+;format-prefix = 
+;format-prefix-font = 1
+;format-prefix-foreground = ${color.standpref}
+;format-prefix-background = ${color.magenta}
+
+label = %output%
+label-foreground = ${color.yellow}
+label-background = ${color.standpref}
+label-padding = 1
+

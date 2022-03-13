@@ -1,0 +1,102 @@
+#!/bin/bash
+
+# Mounts all partitions on the disk on which root is specified if not done already.
+# u argument unmounts it and deletes folders that have been (or would have been) created by this script.
+
+dolla1=$1
+
+[[ "$(whoami)" == "root" ]] || { echo "Please run as root!" && exit 1; }
+
+# root is mounted here 																-> /dev/sdc1
+rootpath=$(mount | grep "/ " | awk '{print $1}')	 
+
+# delivers last character of $rootpath 												-> 1
+rootpart=${rootpath:(-1)}
+
+# delivers path to device 															-> /dev/sdc
+#${rootpath: 0:-1}	
+
+# split (delimeter is '/') and save in temporary array 'a'; then print third item 	-> sdc1
+rootdevicepn=$(echo $rootpath | awk '{split($0,a,"/"); print a[3]}')
+
+# cut last character																-> sdc
+rootdevice=${rootdevicepn: 0:-1}	
+
+# delivers all partitions of the rootdisk in an array								-> [sdc1; sdc2]
+#partsindev=($(lsblk | grep $rootdevice | grep part | awk '{print $1}' | awk '{split($0,a,"─"); print a[2]}'))
+
+# delivers all partition numbers of the rootdisk in an array								-> [1; 2]
+partsindev=($(lsblk | grep $rootdevice | grep part | awk '{print $1}' | awk '{split($0,a,"─"); print a[2]}' | awk '$0=$NF' FS= ))
+#echo "partsindev: ${partsindev[@]}"
+
+# already mounted partitions of the rootdisk in an array							-> [1; 2]
+alrdymntd=($(mount | grep $rootdevice | awk '{print $1}' | awk '{split($0,a,"/"); print a[3]}' | awk '$0=$NF' FS= ))		
+#echo "alrdymntd: ${alrdymntd[@]}"
+
+# those partitions which are not mounted already in an array						-> [1; 2]
+tomount=($(echo ${partsindev[@]} ${alrdymntd[@]} | tr ' ' '\n' | sort | uniq -u))
+#echo "tomount: ${tomount[@]}"
+
+# ntfsfix basically..
+elsecase() {
+	drivepath=$1
+	echo "--Doing ntfsfix on $device--" 
+	sudo ntfsfix $drivepath 
+	echo "--remounting $device--" 
+	sudo mount -vo remount,rw $drivepath 
+	echo -e "\n... done with workaround!\n\n"
+	#sudo cat $templog >> $logpath    #append
+	#sudo cat $templog > $logpath    #replace
+	echo " " 
+}
+
+# main -> get input, mount, check
+runsth() {
+	partpath=$1
+	pdrivepath=/dev/$partpath
+	pmountpath=/media/$partpath 
+#: <<'END'
+	sudo mkdir -p $pmountpath
+
+	sudo mount -t auto -v $pdrivepath $pmountpath 
+	errlev=${PIPESTATUS[0]}
+
+	if [ $errlev -eq 0 ]
+	then
+	#	if [ -w $mountpath/pagefile.sys ] 
+		if touch $pmountpath/AA
+		then
+			echo -e "... done\n\n"
+			rm $pmountpath/AA
+		else
+			echo "--errorlevel: $errlev, but no writing permissions--"
+			elsecase $pdrivepath 
+		fi
+	else
+		echo "--errorlevel: $errlev--" 
+		elsecase $pdrivepath 
+	fi
+#END
+	#echo "dry run: mounting $pdrivepath to $pmountpath"
+}
+
+#umount and delete directories
+unrunsth() {
+	pmountpath=/media/$1
+	[[ -n $(echo $pmountpath | grep media) ]] && { sudo umount $pmountpath && sudo rm -r $pmountpath; } || { echo "$pmountpath was created elsewehere. Better wont touch it"; }
+	#[[ -n $(echo $pmountpath | grep media) ]] && { echo "dry run: unmounting and deleting folder: $pmountpath"; } || { echo "$pmountpath was created elsewehere. Better wont touch it"; }
+}
+
+
+
+case "$1" in
+	u)
+		for i in ${partsindev[@]}; do [[ "$i" != "$rootpart" ]] && unrunsth $rootdevice$i; done	# -> sdc2, sdc3, sdc4, ... except the one with root
+		;;
+	*)
+		for i in ${tomount[@]}; do runsth $rootdevice$i; done	# -> sdc2, sdc3, sdc4, ... except already mounted (including root)
+		;;
+esac
+
+
+exit 0

@@ -1,0 +1,12 @@
+if systemd is available
+
+    put .service files in "/etc/systemd/system/"
+    ->  /etc/systemd/system/script1.service
+    put scripts in "/usr/bin/"
+    ->  /usr/bin/script1
+    make sure scripts have 755 permissions (rwxr-xr-x)
+    ->  chmod 755 usr/bin/script1
+    enable service 
+    ->  systemctl enable script.service
+
+rc.local seems obsolete :(

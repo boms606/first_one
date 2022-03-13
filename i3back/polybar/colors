@@ -6,7 +6,8 @@ format-transparent = #222526
 
 ;actual colors
 transparent = 00000000
-background = #aa222526
+;background = #aa222526
+background = #882e1139
 foreground = #dfbf8e
 standpref = #222526
 black = #665c54

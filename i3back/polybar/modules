@@ -278,7 +278,7 @@ format = <label>
 format-prefix = "  "
 format-prefix-foreground = ${color.standpref}
 format-foreground = ${color.standpref}
-format-background = #6b7
+format-background = #77b288
 
 label = " %gb_used% %{A}/ %gb_total% %{A}(%percentage_used% %) "
 ;label = "%{A1:terminal -e htop &:} %gb_used% %{A}/ %gb_total% %{A}(%percentage_used% %) "

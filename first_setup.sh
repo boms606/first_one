@@ -2,11 +2,7 @@
 
 # todo: - add timestamps to errors.log logs
 #       - find ppas to install stuff without snap or flatpak
-#       - add install 'sensors'
-#       - startup script to mount wherever datafive is:
-#           -> drive letter (e.g sdA or sdB) can be obtained like this:  
-#               drive=/dev/sd$(cat /proc/mounts | grep -i "/dev/sd" | grep " / " | cut -f3 -d"d" | cut -f1 -d" " | sed 's/[0-9]//g')2
-#                   -> $drive=/dev/sdc2 or $drive=/dev/sdd2
+#       - startup scripts to start up automatically under different circumstances (rc.local, systemd, ".config/autostart", ...)
 #               
 
 dolla1=$1
@@ -165,6 +161,7 @@ cinstall gimp
 cinstall skypeforlinux
 cinstall vlc
 cinstall obs-studio
+cinstall lm-sensors
 cyayc code
 cyayc gdebi
 cyayc gparted

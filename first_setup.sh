@@ -3,6 +3,7 @@
 # todo: - add timestamps to errors.log logs
 #       - find ppas to install stuff without snap or flatpak
 #       - startup scripts to start up automatically under different circumstances (rc.local, systemd, ".config/autostart", ...)
+#       - include "./config/picom.conf" and "/usr/share/rofi/themes/newDefault.rasi" in i3/picom
 #               
 
 dolla1=$1
@@ -124,7 +125,10 @@ i3izda(){
     mkdir -p /home/$usernam/.config/i3 && cp i3back/config /home/$usernam/.config/i3/
     cp -r i3back/scripts /home/$usernam/.config/i3/
     cp i3back/i3blocks.conf /etc/
+    cp i3back/newDefault.rasi /usr/share/rofi/themes/
+    cp i3back/picom.conf /home/$usernam/.config/
     chown -R $usernam:$usernam /home/$usernam/.config/i3/
+    chown $usernam:$usernam /home/$usernam/.config/picom.conf
     xfce4-terminal -e 'echo -e "You will have to:\n    yay -S nerd-fonts-hack\nin order to be able to display the polybar properly :)"' --hold &
 #    cinstall ttf-nerd-fonts-symbols
 #    cinstall ttf-iosevka-nerd

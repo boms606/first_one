@@ -122,6 +122,7 @@ i3izda(){
     cinstall rofi
     cinstall numlockx
     cinstall xed
+    cinstall cool-retro-term
     mkdir -p /home/$usernam/.config/i3 && cp i3back/config /home/$usernam/.config/i3/
     cp -r i3back/scripts /home/$usernam/.config/i3/
     cp i3back/i3blocks.conf /etc/

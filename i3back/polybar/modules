@@ -98,6 +98,8 @@ ramp-volume-background = ${color.green}
 ramp-headphones-0 = "  "
 ramp-headphones-1 = "  "
 
+click-right=pavucontrol
+
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/battery]

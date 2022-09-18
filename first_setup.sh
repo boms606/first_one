@@ -110,6 +110,7 @@ instLogi(){
     make -C /home/$usernam/tools/g810-led-master/ install
 
     chown -R $usernam:$usernam /home/$usernam/tools/
+    echo -e "a 00006f\ng logo 6f0000\ng multimedia 006f00\ng indicators 006f00\nc" > /etc/g810-led/profile
 }
 
 i3izda(){
@@ -123,9 +124,13 @@ i3izda(){
     cinstall numlockx
     cinstall xed
     cinstall cool-retro-term
+    cinstall acpi
+    cinstall scrot
+    cinstall picom
+
     mkdir -p /home/$usernam/.config/i3 && cp i3back/config /home/$usernam/.config/i3/
     cp -r i3back/scripts /home/$usernam/.config/i3/
-    cp i3back/i3blocks.conf /etc/
+    cp i3back/i3blocks.conf /home/$usernam/.config/i3/
     cp i3back/newDefault.rasi /usr/share/rofi/themes/
     cp i3back/picom.conf /home/$usernam/.config/
     chown -R $usernam:$usernam /home/$usernam/.config/i3/
@@ -166,13 +171,13 @@ cinstall gimp
 cinstall skypeforlinux
 cinstall vlc
 cinstall obs-studio
-cinstall lm-sensors
+cinstall lm_sensors
 cyayc code
 cyayc gdebi
 cyayc gparted
 cupdate
 
-instLogi
+#instLogi
 
 # check whether systemd is present
 #pidof systemd && systemdizda || echo "No systemd active, thus snapd not necessary!"
@@ -185,7 +190,6 @@ export PATH=$PATH:/home/$usernam/scripts/bash #&& pathtobeadded+=:/home/$usernam
 # set personalisation variables
 echo "set -g default-terminal \"screen-256color\"" > /etc/tmux.conf
 echo "set-option -g default-command '/bin/bash'" >> /etc/tmux.conf
-echo -e "a 00006f\ng logo 6f0000\ng multimedia 006f00\ng indicators 006f00\nc" > /etc/g810-led/profile
 
 # append bckpfiles/profileAppend to /home/$usernam/.bashrc
 cat bckpfiles/profileAppend | tee -a /home/$usernam/.bashrc

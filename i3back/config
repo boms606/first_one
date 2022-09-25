@@ -45,11 +45,20 @@ workspace_layout default
 # Dual Monitor for Tower #
 ##########################
 
-#setting for dual-monitor
-set $mon1 'HDMI-0'
-set $mon2 'DP-1'
+#setting for dual-monitor on Workstation
+#set $mon1 'HDMI-0'
+#set $mon2 'DP-1'
+#exec --no-startup-id xrandr --output $mon2 --auto --right-of $mon1
 
-exec --no-startup-id xrandr --output $mon2 --auto --right-of $mon1
+#setting for dual(-triple)-monitor on xps15-end
+set $mon1 'eDP-1'
+set $mon2 'DP-1-1'
+set $mon3 'DP-1-2'
+exec --no-startup-id xrandr --output $mon3 --auto --right-of $mon2
+exec --no-startup-id xrandr --output $mon1 --auto --right-of $mon3
+
+## to do:  if (xrandr --listmonitors | sed -n 1p | awk '{print $2}') > 1 = deactivate $mon1
+
 
 # Moving workspaces between screens 
 bindsym $mod+k move workspace to output right
@@ -326,8 +335,8 @@ set $ws10 "10:win"
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays 
 # you can get from xrandr command
-workspace $ws1 output HDMI-1
-workspace $ws2 output DP-1
+#workspace $ws1 output eDP-1
+#workspace $ws2 output HDMI-1
 #workspace $ws3 output HDMI-0
 #workspace $ws4 output HDMI-0
 #workspace $ws5 output HDMI-0
@@ -371,7 +380,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # num lock activated
-exec_always --no-startup-id numlockx on
+#exec_always --no-startup-id numlockx on
 
 # start conky: 
 #exec_always --no-startup-id conky
@@ -406,20 +415,21 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 
 # Autostart apps as you like
 
-## Polybar, sometimes buggy :/
-#exec_always --no-startup-id sleep 5
-#exec_always --no-startup-id "polybar bar"
-#exec_always --no-startup-id sleep 2
-#exec_always --no-startup-id "polybar bar2"
+exec_always --no-startup-id sleep 5
+exec_always --no-startup-id "polybar bar"
+exec_always --no-startup-id sleep 2
+exec_always --no-startup-id "polybar bar2"
+exec_always --no-startup-id sleep 2
+exec_always --no-startup-id "polybar bar3"
 
 #exec_always --no-startup-id rofi -modi drun -show drun -display-drun "RUN : " \
 #                -hide-scrollbar -show-icons -drun-icon-theme "Arc-X-D" \
 #                -font "Noto Sans Regular 11"
 
-exec_always --no-startup-id sleep 2 && cool-retro-term -e bash -c  "glances --percpu"
+#exec_always --no-startup-id sleep 2 && cool-retro-term -e bash -c  "glances --percpu"
 #exec --no-startup-id sleep 2 && xfce4-terminal -e "glances --percpu"
 
-exec --no-startup-id sleep 5 && g810-led -dv 046d -a ffffff && sleep 0.5 && g810-led -dv 046d -p /etc/g810-led/profile && sleep 0.5 && gseq810 "fuck zou11" 0.2
+#exec --no-startup-id sleep 5 && g810-led -dv 046d -a ffffff && sleep 0.5 && g810-led -dv 046d -p /etc/g810-led/profile && sleep 0.5 && gseq810 "fuck zou11" 0.2
 
 #prevent screen blank / screensaver
 exec --no-startup-id xset s off
@@ -477,37 +487,37 @@ client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
 # Start i3bar to display a workspace bar 
 # (plus the system information i3status finds out, if available)
 
-#good bar commented out in favour of polybar
-bar {
-		tray_output none
-		font pango:Noto Sans Regular 10, FontAwesome 10
-		#font pango:Noto Sans Regular 0, FontAwesome 0
-		status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	    position bottom 
-	    i3bar_command i3bar --transparency
-		# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
-		# reference: https://i3wm.org/docs/userguide.html#_tray_output
-		#tray_output primary     # comment out in a dual monitor setup
-		tray_padding 0
-
-		# When strip_workspace_numbers is set to yes, 
-		# any workspace that has a name of the form 
-		# “[n][:][NAME]” will display only the name.
-		strip_workspace_numbers yes
-		##strip_workspace_name no
-
-		colors {
-		separator          $purple
-		background         $blurred
-		statusline         $white
-
-        #                  	border	 		    bg  		        txt		        indicator
-		focused_workspace	$blurred		   	$darkgreytrans	    $white		    $purple
-		active_workspace	$blurred   		   	$darkgreytrans	    $white		    $purple
-		inactive_workspace	$blurred  			$blurred		    $white			$purple
-		urgent_workspace	$blurred		    $urgentred	        $white		    $purple 
-		}
-}
+##good bar commented out in favour of polybar
+#bar {
+#		tray_output none
+#		font pango:Noto Sans Regular 10, FontAwesome 10
+#		#font pango:Noto Sans Regular 0, FontAwesome 0
+#		status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#	    position bottom 
+#	    i3bar_command i3bar --transparency
+#		# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
+#		# reference: https://i3wm.org/docs/userguide.html#_tray_output
+#		#tray_output primary     # comment out in a dual monitor setup
+#		tray_padding 0
+#
+#		# When strip_workspace_numbers is set to yes, 
+#		# any workspace that has a name of the form 
+#		# “[n][:][NAME]” will display only the name.
+#		strip_workspace_numbers yes
+#		##strip_workspace_name no
+#
+#		colors {
+#		separator          $purple
+#		background         $blurred
+#		statusline         $white
+#
+#        #                  	border	 		    bg  		        txt		        indicator
+#		focused_workspace	$blurred		   	$darkgreytrans	    $white		    $purple
+#		active_workspace	$blurred   		   	$darkgreytrans	    $white		    $purple
+#		inactive_workspace	$blurred  			$blurred		    $white			$purple
+#		urgent_workspace	$blurred		    $urgentred	        $white		    $purple 
+#		}
+#}
 
 #####################################
 # Application menu handled by rofi: #

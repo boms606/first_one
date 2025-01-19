@@ -11,6 +11,7 @@ window#waybar {
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
+    border-radius: 20;
 }
 
 window#waybar.hidden {
@@ -98,20 +99,23 @@ button:hover {
     margin: 0 4px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
+/* If certain modules is the left- or rightmost module, omit margin
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+    margin-left: 4px;
 }
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+.modules-right > widget:last-child > #clock {
+    margin-right: 4px;
 }
+.modules-right > widget:last-child > #tray {
+    margin-right: 4px;
+}
+*/
 
 #clock {
     background-color: #64727D;
     border-radius: 20;
 }
+
 
 #battery {
     background-color: #ffffff;

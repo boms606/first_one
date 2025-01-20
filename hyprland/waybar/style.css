@@ -118,7 +118,7 @@ button:hover {
 
 
 #battery {
-    background-color: #ffffff;
+    background-color: #bf71d6;
     color: #000000;
     border-radius: 20;
 }
@@ -168,7 +168,7 @@ label:focus {
 }
 
 #backlight {
-    background-color: #90b1b1;
+    background-color: #55bbb2;
     border-radius: 20;
 }
 
@@ -183,7 +183,7 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
+    background-color: #af9c4e;
     color: #000000;
     border-radius: 20;
 }

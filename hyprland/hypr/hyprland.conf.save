@@ -20,9 +20,9 @@ bindl = , switch:off:Lid Switch, exec, hyprctl keyword monitor "eDP-1,preferred,
 exec-once = waybar
 exec-once = waypaper --restore
 exec-once = hyprpaper
-exec-once = wl-paste --type text --watch cliphist store & # Stores only text data
-exec-once = wl-paste --type image --watch cliphist store & # Stores only image data
-#exec-once = wl-paste --watch cliphist store
+#exec-once = wl-paste --type text --watch cliphist store & # Stores only text data
+#exec-once = wl-paste --type image --watch cliphist store & # Stores only image data
+exec-once = wl-paste --watch cliphist store
 #exec = wl-paste --watch cliphist store &
 
 # Source a file (multi-file configs)
@@ -160,7 +160,9 @@ bind = $mainMod, l, exec, hyprctl dispatch exit
 bind = $mainMod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
 bind = $mainMod SHIFT, s, exec, grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Bilder/Screenshots/Screenshot-$(date +%F_%T).png
 bind = $mainMod, s, exec, grim - | wl-copy && wl-paste > ~/Bilder/Screenshots/Screenshot-$(date +%F_%T).png
-bind = $mainMod SHIFT, r, exec, pkill waybar && waybar &
+bind = $mainmod, r, exec, pkill waybar && waybar &
+
+
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, left, movefocus, l
